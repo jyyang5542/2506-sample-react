@@ -1,47 +1,55 @@
 import type { tTheme } from '@/types';
+import Cookies from 'js-cookie';
 import { create } from 'zustand';
 
-// 로컬 스토리지 키
-const THEME_STORAGE_KEY = 'app-theme-mode';
-
-// 로컬 스토리지에서 초기 테마 로드
-const getInitialThemeMode = (): tTheme => {
-	if (typeof window !== 'undefined') {
-		const storedTheme = localStorage.getItem(THEME_STORAGE_KEY) as tTheme;
-		if (storedTheme) {
-			return storedTheme;
-		}
-		// 시스템 설정에 따른 기본 테마
-		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-			return 'dark';
-		}
-	}
-	return 'light'; // 기본값은 'light'
-};
+// 쿠키 키
+const THEME_COOKIE_KEY = 'app-theme-mode';
 
 interface ThemeState {
 	themeMode: tTheme;
+	isLoaded: boolean;
 	toggleTheme: () => void;
 	setTheme: (mode: tTheme) => void;
+	initializeTheme: () => void;
 }
 
-const useThemeStore = create<ThemeState>(set => ({
-	themeMode: getInitialThemeMode(), // 초기 테마 설정
+const useThemeStore = create<ThemeState>((set, get) => ({
+	themeMode: 'light',
+	isLoaded: false,
+
 	toggleTheme: () =>
 		set(state => {
 			const newMode = state.themeMode === 'light' ? 'dark' : 'light';
 			if (typeof window !== 'undefined') {
-				localStorage.setItem(THEME_STORAGE_KEY, newMode);
+				Cookies.set(THEME_COOKIE_KEY, newMode, { expires: 365 }); // 1년 유효
 			}
 			return { themeMode: newMode };
 		}),
+
 	setTheme: (mode: tTheme) =>
 		set(() => {
 			if (typeof window !== 'undefined') {
-				localStorage.setItem(THEME_STORAGE_KEY, mode);
+				Cookies.set(THEME_COOKIE_KEY, mode, { expires: 365 }); // 1년 유효
 			}
 			return { themeMode: mode };
-		})
+		}),
+
+	initializeTheme: () => {
+		if (typeof window !== 'undefined' && !get().isLoaded) {
+			const storedTheme = Cookies.get(THEME_COOKIE_KEY) as tTheme;
+			let initialMode: tTheme;
+
+			if (storedTheme) {
+				initialMode = storedTheme;
+			} else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				initialMode = 'dark';
+			} else {
+				initialMode = 'light';
+			}
+
+			set({ themeMode: initialMode, isLoaded: true });
+		}
+	}
 }));
 
 export default useThemeStore;

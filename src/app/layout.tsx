@@ -1,12 +1,6 @@
-'use client';
-
-import StyledComponentsRegistry from '@/libs/registry';
-import useThemeStore from '@/stores/themeStore';
-import GlobalStyle from '@/styles/Global.style';
-import { darkTheme, lightTheme } from '@/styles/theme';
+import ThemeProvider from '@/components/Base/ThemeProvider/ThemeProvider';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import { ThemeProvider } from 'styled-components';
 
 const geistSans = Geist({
 	variable: '--font-geist-sans',
@@ -19,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: 'Next App',
+	title: 'Next App 예제',
 	description: 'Next 프로젝트 템플릿'
 };
 
@@ -28,18 +22,10 @@ export default function RootLayout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	const { themeMode } = useThemeStore();
-	const currentTheme = themeMode === 'light' ? lightTheme : darkTheme;
-
 	return (
 		<html lang='ko'>
 			<body className={`${geistSans.variable} ${geistMono.variable}`}>
-				<StyledComponentsRegistry>
-					<ThemeProvider theme={currentTheme}>
-						<GlobalStyle $themeMode={themeMode} />
-						{children}
-					</ThemeProvider>
-				</StyledComponentsRegistry>
+				<ThemeProvider>{children}</ThemeProvider>
 			</body>
 		</html>
 	);
