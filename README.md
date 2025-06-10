@@ -1,3 +1,13 @@
 # 2506-sample-react
 
-리액트 앱으로 래핑까지 해보기
+## 프로젝트 시작
+
+```bash
+npm run dev -- --turbo
+```
+
+## 스토리북 시작
+
+```bash
+npm run storybook
+```
