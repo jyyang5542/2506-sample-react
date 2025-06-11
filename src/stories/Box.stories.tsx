@@ -20,9 +20,9 @@ const ArgChildren = () => {
 
 	return (
 		<div>
-			<h1>{`<Base.Box>`}</h1>
+			<h1>Base.Box</h1>
 			<p>
-				여백을 속성으로 간단하게 줄 수 있는 블록 컴포넌트입니다.
+				여백을 props로 간단하게 줄 수 있는 블록 컴포넌트입니다.
 				<br />
 				기본 <CodeLine>{`<div />`}</CodeLine>이지만 <CodeLine>as</CodeLine> 속성을 사용해 다른 HTML 태그로 변경도 가능합니다.
 				<br />
@@ -39,6 +39,13 @@ const meta = {
 	title: 'Base/Base.Box',
 	component: Base.Box,
 	parameters: {},
+	decorators: [
+		() => (
+			<Base.Box>
+				<ArgChildren />
+			</Base.Box>
+		)
+	],
 	tags: ['autodocs'],
 	argTypes: {
 		children: { description: 'Base.Box 내부에 들어가는 내용', control: false },
@@ -55,9 +62,7 @@ const meta = {
 		pl: { description: 'padding-left', control: 'number' },
 		pr: { description: 'padding-right', control: 'number' }
 	},
-	args: {
-		children: <ArgChildren />
-	}
+	args: {}
 } satisfies Meta<typeof Base.Box>;
 
 export default meta;
