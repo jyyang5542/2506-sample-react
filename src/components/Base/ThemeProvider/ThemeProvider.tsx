@@ -13,11 +13,13 @@ interface Props {
 }
 
 const ThemeProvider = ({ children }: Props) => {
-	const { themeMode, initializeTheme } = useThemeStore();
+	const { themeMode, isLoaded, initializeTheme } = useThemeStore();
 
 	useEffect(() => {
 		initializeTheme();
 	}, [initializeTheme]);
+
+	if (!isLoaded) return null;
 
 	const currentTheme = themeMode === 'light' ? lightTheme : darkTheme;
 

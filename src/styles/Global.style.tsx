@@ -6,16 +6,16 @@ import { darkTheme, lightTheme } from './theme';
 
 const GlobalStyle = createGlobalStyle<{ $themeMode: tTheme }>`
   :root {
-    --background: ${lightTheme.background};
-    --text: ${lightTheme.text};
-
-  // dark 모드가 활성화되었을 때 변수 오버라이드
   ${props =>
-		props.$themeMode === 'dark' &&
-		css`
-			--background: ${darkTheme.background};
-			--text: ${darkTheme.text};
-		`}
+		props.$themeMode === 'light'
+			? css`
+					--background: ${lightTheme.background};
+					--text: ${lightTheme.text};
+			  `
+			: css`
+					--background: ${darkTheme.background};
+					--text: ${darkTheme.text};
+			  `}
   }
 
   html,
