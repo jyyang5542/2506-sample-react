@@ -1,4 +1,4 @@
-import type { tTheme } from '@/types';
+import type { TTheme } from '@/types';
 import Cookies from 'js-cookie';
 import { create } from 'zustand';
 
@@ -6,10 +6,10 @@ import { create } from 'zustand';
 const THEME_COOKIE_KEY = 'app-theme-mode';
 
 interface ThemeState {
-	themeMode: tTheme;
+	themeMode: TTheme;
 	isLoaded: boolean;
 	toggleTheme: () => void;
-	setTheme: (mode: tTheme) => void;
+	setTheme: (mode: TTheme) => void;
 	initializeTheme: () => void;
 }
 
@@ -26,7 +26,7 @@ const useThemeStore = create<ThemeState>((set, get) => ({
 			return { themeMode: newMode };
 		}),
 
-	setTheme: (mode: tTheme) =>
+	setTheme: (mode: TTheme) =>
 		set(() => {
 			if (typeof window !== 'undefined') {
 				Cookies.set(THEME_COOKIE_KEY, mode, { expires: 365 }); // 1년 유효
@@ -36,8 +36,8 @@ const useThemeStore = create<ThemeState>((set, get) => ({
 
 	initializeTheme: () => {
 		if (typeof window !== 'undefined' && !get().isLoaded) {
-			const storedTheme = Cookies.get(THEME_COOKIE_KEY) as tTheme;
-			let initialMode: tTheme;
+			const storedTheme = Cookies.get(THEME_COOKIE_KEY) as TTheme;
+			let initialMode: TTheme;
 
 			if (storedTheme) {
 				initialMode = storedTheme;

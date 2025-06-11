@@ -1,13 +1,13 @@
 'use client';
 
 import useThemeStore from '@/stores/themeStore';
-import type { tSyntaxHighlighterLanguage } from '@/types/syntaxHighlighter';
+import type { TSyntaxHighlighterLanguage } from '@/types/syntaxHighlighter';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 interface Props {
 	children: string;
-	language?: tSyntaxHighlighterLanguage;
+	language?: TSyntaxHighlighterLanguage;
 }
 
 const CodeBlock = ({ children, language = 'javascript' }: Props) => {

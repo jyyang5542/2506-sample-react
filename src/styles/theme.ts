@@ -1,9 +1,11 @@
+import { Colors } from '@/constants/Colors';
+
 export const lightTheme = {
-	background: '#ffffff',
-	text: '#222222'
+	background: Colors.white,
+	text: Colors.gray2
 };
 
 export const darkTheme = {
-	background: '#222222',
-	text: '#ffffff'
+	background: Colors.gray2,
+	text: Colors.white
 };

@@ -1,5 +1,5 @@
 import React from 'react';
 
-export type tTheme = 'light' | 'dark';
+export type TTheme = 'light' | 'dark';
 
-export type tChildren = string | React.ReactNode;
+export type TChildren = string | React.ReactNode;

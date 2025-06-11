@@ -1,5 +1,4 @@
-import CodeBlock from '@/components/Base/CodeBlock/CodeBlock';
-import CodeLine from '@/components/Base/CodeLine/CodeLine';
+import { CodeBlock, CodeLine } from '@/components/Base';
 
 const MockTemplate = () => {
 	const COMPONENT_CODE = `

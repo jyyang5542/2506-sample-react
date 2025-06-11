@@ -4,12 +4,12 @@ import StyledComponentsRegistry from '@/libs/registry';
 import useThemeStore from '@/stores/themeStore';
 import GlobalStyle from '@/styles/Global.style';
 import { darkTheme, lightTheme } from '@/styles/theme';
-import type { tChildren } from '@/types';
+import type { TChildren } from '@/types';
 import { useEffect } from 'react';
 import { ThemeProvider as Provider } from 'styled-components';
 
 interface Props {
-	children: tChildren;
+	children: TChildren;
 }
 
 const ThemeProvider = ({ children }: Props) => {

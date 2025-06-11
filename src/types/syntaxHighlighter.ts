@@ -1,4 +1,4 @@
-export type tSyntaxHighlighterLanguage =
+export type TSyntaxHighlighterLanguage =
 	| 'actionscript'
 	| 'apache'
 	| 'arduino'
