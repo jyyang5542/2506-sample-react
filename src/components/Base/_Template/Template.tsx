@@ -1,14 +1,9 @@
-import MockTemplate from '@/mocks/template.mock';
-import { Wrap } from './Template.style';
+import { Style } from './Template.style';
 
 interface Props {}
 
-const Template = ({}: Props) => {
-	return (
-		<Wrap>
-			<MockTemplate />
-		</Wrap>
-	);
+const ComponentName = ({}: Props) => {
+	return <Style.Wrap></Style.Wrap>;
 };
 
-export default Template;
+export default ComponentName;

@@ -1,16 +1,16 @@
 'use client';
 
 import useThemeStore from '@/stores/themeStore';
-import { Page } from '@/styles/Base.style';
+import { Base } from '@/styles/Base.style';
 
 interface Props {}
 
 const Main = ({}: Props) => {
 	const { themeMode, toggleTheme } = useThemeStore();
 	return (
-		<Page>
+		<Base.Box>
 			메인<button onClick={toggleTheme}>{themeMode === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}</button>
-		</Page>
+		</Base.Box>
 	);
 };
 

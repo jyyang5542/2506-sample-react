@@ -1,4 +1,5 @@
 import ThemeProvider from '@/components/Base/ThemeProvider/ThemeProvider';
+import { PROJECT } from '@/constants';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 
@@ -13,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: 'Next App 예제',
-	description: 'Next 프로젝트 템플릿'
+	title: PROJECT.NAME,
+	description: PROJECT.DESCRIPTION
 };
 
 export default function RootLayout({

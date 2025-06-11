@@ -12,7 +12,7 @@ const preview: Preview = {
 		options: {
 			storySort: {
 				method: 'alphabetical',
-				order: ['Base', ['기본 템플릿', 'Header', 'Footer', '*'], '*']
+				order: ['Template', 'Base', ['Header', 'Footer', '*'], '*']
 			}
 		},
 

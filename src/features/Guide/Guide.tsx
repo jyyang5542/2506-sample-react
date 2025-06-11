@@ -1,9 +1,11 @@
 'use client';
 
+import { CodeLine } from '@/components/Base';
 import { GuideList } from '@/constants/Guide';
 import useThemeStore from '@/stores/themeStore';
+import { Base, PADDING_X } from '@/styles/Base.style';
 import Link from 'next/link';
-import { Wrap } from './Guide.style';
+import { Style } from './Guide.style';
 
 interface Props {}
 
@@ -11,12 +13,20 @@ const Guide = ({}: Props) => {
 	const { themeMode } = useThemeStore();
 
 	return (
-		<Wrap theme={themeMode}>
+		<Style.Wrap theme={themeMode}>
 			<h1>페이지 가이드</h1>
+			<Style.CategoryWrap>
+				<h2>UI 가이드</h2>
+				<Base.Box as='ul' pl={PADDING_X}>
+					<li>
+						<CodeLine language='bash'>npm run storybook</CodeLine>
+					</li>
+				</Base.Box>
+			</Style.CategoryWrap>
 			{GuideList.map((data, i) => (
-				<div key={`${data.category}-${i}`} className={'category-wrap'}>
+				<Style.CategoryWrap key={`${data.category}-${i}`}>
 					<h2>{data.category}</h2>
-					<div className={'table-wrap'}>
+					<Style.TableWrap>
 						<table>
 							<colgroup>
 								<col style={{ width: '15%' }} />
@@ -42,24 +52,24 @@ const Guide = ({}: Props) => {
 							<tbody>
 								{data.list.map((item, j) => (
 									<tr key={`${data.category}-${j}`}>
-										<td>
-											<Link href={`${item.dir}${item.pageName}`}>{item.pageName}</Link>
-										</td>
-										<td>{!!item.depth[0] && item.depth[0]}</td>
-										<td>{!!item.depth[1] && item.depth[1]}</td>
-										<td>{!!item.depth[2] && item.depth[2]}</td>
-										<td>{!!item.depth[3] && item.depth[3]}</td>
-										<td>{!!item.depth[4] && item.depth[4]}</td>
-										<td>{item.date}</td>
-										<td>{item.memo}</td>
+										<Style.Td>
+											<Link href={`${item.dir}`}>{item.pageName}</Link>
+										</Style.Td>
+										<Style.Td>{!!item.depth[0] && item.depth[0]}</Style.Td>
+										<Style.Td>{!!item.depth[1] && item.depth[1]}</Style.Td>
+										<Style.Td>{!!item.depth[2] && item.depth[2]}</Style.Td>
+										<Style.Td>{!!item.depth[3] && item.depth[3]}</Style.Td>
+										<Style.Td>{!!item.depth[4] && item.depth[4]}</Style.Td>
+										<Style.Td>{item.date}</Style.Td>
+										<Style.Td align='center'>{item.memo}</Style.Td>
 									</tr>
 								))}
 							</tbody>
 						</table>
-					</div>
-				</div>
+					</Style.TableWrap>
+				</Style.CategoryWrap>
 			))}
-		</Wrap>
+		</Style.Wrap>
 	);
 };
 

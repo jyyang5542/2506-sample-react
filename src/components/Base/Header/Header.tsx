@@ -1,12 +1,12 @@
-import { Wrap } from './Header.style';
+import { Style } from './Header.style';
 
 interface Props {}
 
 const Header = ({}: Props) => {
 	return (
-		<Wrap>
+		<Style.Wrap>
 			<></>
-		</Wrap>
+		</Style.Wrap>
 	);
 };
 

@@ -1,12 +1,12 @@
-import { Wrap } from './Footer.style';
+import { Style } from './Footer.style';
 
 interface Props {}
 
 const Footer = ({}: Props) => {
 	return (
-		<Wrap>
+		<Style.Wrap>
 			<></>
-		</Wrap>
+		</Style.Wrap>
 	);
 };
 
