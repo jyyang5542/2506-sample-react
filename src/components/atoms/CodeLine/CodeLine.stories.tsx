@@ -3,38 +3,23 @@ import { syntaxHighlighterLanguages } from '@/mocks/syntaxHighlighter.mock';
 import { Base } from '@/styles/Base.style';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
-const COMPONENT_CODE = `import { Style } from './컴포넌트명.style';
-
-interface Props {}
-
-const 컴포넌트명 = ({}: Props) => {
-		return <></>;
-};`;
+const COMPONENT_CODE = `import React from 'react';`;
 
 const Description = () => {
 	const CODE = `/* 기본 */
-<CodeBlock>
-  // 
-</CodeBlock>
+<CodeLine>YOUR_CODE</CodeLine>
 
 /* language 설정*/
-<CodeBlock language="javascript">
-  // 
-</CodeBlock>
-
-/* 라인 넘버 보이기 */
-<CodeBlock showLineNumbers>
-  // 
-</CodeBlock>`;
+<CodeLine language="javascript">YOUR_CODE</CodeLine>`;
 
 	return (
 		<div>
-			<h1>CodeBlock</h1>
+			<h1>CodeLine</h1>
 			<p>
-				<CodeLine>SyntaxHighlighter</CodeLine>를 사용해 코드블럭을 보여줄 수 있는 컴포넌트입니다.
+				<CodeLine>SyntaxHighlighter</CodeLine>를 사용해 코드라인을 보여줄 수 있는 컴포넌트입니다.
 				<br />
 				<br />
-				<CodeLine>{`import { CodeBlock } from '@/components/atoms';`}</CodeLine> 한 뒤 다음과 같이 사용합니다.
+				<CodeLine>{`import { CodeLine } from '@/components/atoms'`}</CodeLine> 한 뒤 다음과 같이 사용합니다.
 			</p>
 			<CodeBlock>{CODE}</CodeBlock>
 		</div>
@@ -42,8 +27,8 @@ const Description = () => {
 };
 
 const meta = {
-	title: 'Atoms/CodeBlock',
-	component: CodeBlock,
+	title: 'Atoms/CodeLine',
+	component: CodeLine,
 	parameters: {},
 	tags: ['autodocs'],
 	argTypes: {
@@ -52,14 +37,12 @@ const meta = {
 			description: '사용한 코드의 언어',
 			control: 'select',
 			options: syntaxHighlighterLanguages
-		},
-		showLineNumbers: { control: 'boolean' }
+		}
 	},
 	args: {
-		children: COMPONENT_CODE,
-		showLineNumbers: false
+		children: COMPONENT_CODE
 	}
-} satisfies Meta<typeof CodeBlock>;
+} satisfies Meta<typeof CodeLine>;
 
 export default meta;
 
@@ -77,17 +60,14 @@ export const Docs: Story = {
 };
 
 export const Default: Story = {
-	args: {}
+	args: {
+		children: `<Base.Box>YOUR_CODE</Base.Box>`
+	}
 };
 
 export const Language: Story = {
 	args: {
-		language: 'javascript'
-	}
-};
-
-export const ShowLineNumbers: Story = {
-	args: {
-		showLineNumbers: true
+		language: 'python',
+		children: `squared = [x**2 for x in range(10)]`
 	}
 };

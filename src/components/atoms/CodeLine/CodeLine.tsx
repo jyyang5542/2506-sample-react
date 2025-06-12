@@ -4,7 +4,7 @@ import useThemeStore from '@/stores/themeStore';
 import type { TSyntaxHighlighterLanguage } from '@/types/syntaxHighlighter';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { customStyle, Style } from './CodeLine.style';
+import { Style } from './CodeLine.style';
 
 interface Props {
 	children: string;
@@ -16,11 +16,9 @@ const CodeLine = ({ children, language = 'javascript' }: Props) => {
 	const codeStyle = themeMode === 'light' ? oneLight : oneDark;
 
 	return (
-		<Style.Wrap theme={themeMode}>
-			<SyntaxHighlighter language={language} style={codeStyle} customStyle={customStyle}>
-				{children}
-			</SyntaxHighlighter>
-		</Style.Wrap>
+		<SyntaxHighlighter language={language} style={codeStyle} customStyle={Style}>
+			{children}
+		</SyntaxHighlighter>
 	);
 };
 

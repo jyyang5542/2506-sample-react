@@ -49,12 +49,12 @@ const meta = {
 	tags: ['autodocs'],
 	argTypes: {
 		children: { description: 'Base.Text 내부에 들어가는 내용', control: false },
-		color: { description: '`#000000`, `#FFFFFF` 등' },
-		fontFamily: { description: '"Pretendard 등"' },
+		color: { description: '`#000000`, `#FFFFFF` 등', control: false },
+		fontFamily: { description: '"Pretendard 등"', control: false },
 		fontSize: { control: 'number' },
 		fontWeight: { control: 'number' },
 		opacity: { description: '0부터 1 사이의 소숫점 숫자', control: 'number' },
-		lineHeight: { description: '' },
+		lineHeight: { description: '', control: false },
 		ellipsis: { description: '몇 줄 이상부터 말줄임(...) 처리 하는지<br />기본값은 설정되어 있지 않습니다.', control: 'number' }
 	},
 	args: {

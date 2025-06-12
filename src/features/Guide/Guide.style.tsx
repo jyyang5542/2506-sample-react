@@ -1,6 +1,8 @@
 'use client';
 
-import { Colors, hexToRgba } from '@/constants/Colors';
+import { hexToRgba } from '@/constants/Colors';
+import { Base } from '@/styles/Base.style';
+import { darkTheme, lightTheme } from '@/styles/theme';
 import { TTheme } from '@/types';
 import styled, { css } from 'styled-components';
 
@@ -18,30 +20,29 @@ export const Style = {
 			}
 			table {
 				width: 100%;
-				min-width: 1280px;
+				min-width: 1440px;
 				border-collapse: collapse;
 
 				th,
 				td {
-					padding: 4px;
+					padding: 4px 8px;
 					font-size: 14px;
 					vertical-align: middle;
-					border: 1px solid ${theme === 'light' ? hexToRgba(Colors.grayC, 0.7) : hexToRgba(Colors.gray4, 0.6)};
+					border: 1px solid ${hexToRgba(theme === 'light' ? lightTheme.text : darkTheme.text, 0.15)};
 				}
 				th {
-					background-color: ${theme === 'light' ? hexToRgba(Colors.grayE, 0.7) : hexToRgba(Colors.gray4, 0.6)};
+					background-color: ${hexToRgba(theme === 'light' ? darkTheme.background : lightTheme.background, 0.15)};
 				}
 				td {
 					a {
 						text-decoration: underline;
-						color: ${Colors.gray7};
 					}
 				}
 			}
 		`}
 	`,
 
-	CategoryWrap: styled.div`
+	CategoryWrap: styled(Base.Box)`
 		& + & {
 			margin-top: 40px;
 		}
@@ -52,7 +53,7 @@ export const Style = {
 	`,
 
 	Td: styled.td<{ align?: 'left' | 'center' | 'right' }>`
-		${({ align = 'center' }) =>
+		${({ align = 'left' }) =>
 			css`
 				text-align: ${align};
 			`}

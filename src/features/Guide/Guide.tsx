@@ -1,7 +1,7 @@
 'use client';
 
 import { CodeLine } from '@/components/atoms';
-import { GuideList } from '@/constants/Guide';
+import { GuideList } from '@/constants/GuideList';
 import useThemeStore from '@/stores/themeStore';
 import { Base, PADDING_X } from '@/styles/Base.style';
 import Link from 'next/link';
@@ -35,7 +35,7 @@ const Guide = ({}: Props) => {
 								<col style={{ width: '12%' }} />
 								<col style={{ width: '12%' }} />
 								<col style={{ width: '12%' }} />
-								<col style={{ width: '8%' }} />
+								<col style={{ width: '6.5%' }} />
 								<col />
 							</colgroup>
 							<thead>
@@ -60,8 +60,8 @@ const Guide = ({}: Props) => {
 										<Style.Td>{!!item.depth[2] && item.depth[2]}</Style.Td>
 										<Style.Td>{!!item.depth[3] && item.depth[3]}</Style.Td>
 										<Style.Td>{!!item.depth[4] && item.depth[4]}</Style.Td>
-										<Style.Td>{item.date}</Style.Td>
-										<Style.Td align='center'>{item.memo}</Style.Td>
+										<Style.Td align='center'>{item.date}</Style.Td>
+										<Style.Td>{item.memo}</Style.Td>
 									</tr>
 								))}
 							</tbody>

@@ -12,7 +12,7 @@ const preview: Preview = {
 		options: {
 			storySort: {
 				method: 'alphabetical',
-				order: ['Base', ['Header', 'Footer', '*'], '*']
+				order: ['Base', ['*'], 'Atoms', ['*'], 'Molecules', ['Header', 'Footer', '*'], 'Organisms', ['*'], '*']
 			}
 		},
 

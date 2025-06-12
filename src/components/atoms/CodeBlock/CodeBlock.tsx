@@ -5,6 +5,7 @@ import useThemeStore from '@/stores/themeStore';
 import type { TSyntaxHighlighterLanguage } from '@/types/syntaxHighlighter';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { Style } from './CodeBlock.style';
 
 interface Props {
 	children: string;
@@ -21,6 +22,7 @@ const CodeBlock = ({ children, language = 'javascript', showLineNumbers = false 
 			language={language}
 			style={codeStyle}
 			showLineNumbers={showLineNumbers}
+			customStyle={Style}
 			lineNumberStyle={{
 				minWidth: '2em',
 				marginLeft: '-10px',
