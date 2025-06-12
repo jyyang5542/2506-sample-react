@@ -9,7 +9,7 @@ const Description = () => {
 </Base.Text>
 
 /* p 태그로 변경, color: #000000, 2줄 이상 말줄임 */
-<Base.Text as="p" color={Colors.black} ellipsis={2}>
+<Base.Text as="p" color={COLORS.black} ellipsis={2}>
   // 
 </Base.Text>
 

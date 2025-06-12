@@ -1,4 +1,4 @@
-import { SECTION } from '@/constants/Sections';
+import { SECTION } from '@/constants/sections';
 import { TChildren } from '@/types';
 
 type TDepth = [string] | [string, string] | [string, string, string] | [string, string, string, string] | [string, string, string, string, string];
@@ -25,7 +25,7 @@ const Update = ({ text, color }: { text: string; color?: 'blue' | 'red' }) => {
 	return <p style={style}>* {text}</p>;
 };
 
-export const GuideList: IGuideData[] = [
+export const GUIDE_LIST: IGuideData[] = [
 	{
 		category: '예시',
 		list: [

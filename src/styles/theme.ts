@@ -1,11 +1,11 @@
-import { Colors } from '@/constants/Colors';
+import { COLORS } from '@/constants/colors';
 
 export const lightTheme = {
-	background: Colors.white,
-	text: Colors.gray2
+	background: COLORS.white,
+	text: COLORS.gray2
 };
 
 export const darkTheme = {
-	background: Colors.gray2,
-	text: Colors.white
+	background: COLORS.gray2,
+	text: COLORS.white
 };

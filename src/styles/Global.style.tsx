@@ -1,6 +1,6 @@
 'use client';
 
-import { Colors, hexToRgba } from '@/constants/Colors';
+import { COLORS, hexToRgba } from '@/constants/colors';
 import type { TTheme } from '@/types';
 import { createGlobalStyle, css } from 'styled-components';
 import { darkTheme, lightTheme } from './theme';
@@ -36,14 +36,14 @@ ${props => {
 			&::-webkit-scrollbar {
 				width: 10px;
 				height: 10px;
-				background: ${Colors.transparent};
+				background: ${COLORS.transparent};
 			}
 			&::-webkit-scrollbar-thumb {
-				background-color: ${isThemeLight ? hexToRgba(Colors.black, 0.3) : hexToRgba(Colors.white, 0.3)};
+				background-color: ${isThemeLight ? hexToRgba(COLORS.black, 0.3) : hexToRgba(COLORS.white, 0.3)};
 				border-radius: 5px;
 			}
 			&::-webkit-scrollbar-track {
-				background: ${Colors.transparent};
+				background: ${COLORS.transparent};
 			}
 			&::-webkit-scrollbar-button,
 			&::-webkit-scrollbar-corner {
@@ -53,7 +53,7 @@ ${props => {
 			}
 			* {
 				scrollbar-width: thin;
-				scrollbar-color: ${isThemeLight ? hexToRgba(Colors.black, 0.3) : hexToRgba(Colors.white, 0.3)} ${Colors.transparent};
+				scrollbar-color: ${isThemeLight ? hexToRgba(COLORS.black, 0.3) : hexToRgba(COLORS.white, 0.3)} ${COLORS.transparent};
 			}
 		}
 

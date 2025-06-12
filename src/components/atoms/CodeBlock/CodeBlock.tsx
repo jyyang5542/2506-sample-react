@@ -1,6 +1,6 @@
 'use client';
 
-import { Colors } from '@/constants/Colors';
+import { COLORS } from '@/constants/colors';
 import useThemeStore from '@/stores/themeStore';
 import type { TSyntaxHighlighterLanguage } from '@/types/syntaxHighlighter';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -28,7 +28,7 @@ const CodeBlock = ({ children, language = 'javascript', showLineNumbers = false 
 				marginLeft: '-10px',
 				paddingRight: '1.5em',
 				fontSize: '0.875rem',
-				color: Colors.gray8
+				color: COLORS.gray8
 			}}
 		>
 			{children}

@@ -1,7 +1,7 @@
 'use client';
 
 import { CodeLine } from '@/components/atoms';
-import { GuideList } from '@/constants/GuideList';
+import { GUIDE_LIST } from '@/constants/guideList';
 import useThemeStore from '@/stores/themeStore';
 import { Base, PADDING_X } from '@/styles/Base.style';
 import Link from 'next/link';
@@ -23,7 +23,7 @@ const Guide = ({}: Props) => {
 					</li>
 				</Base.Box>
 			</Style.CategoryWrap>
-			{GuideList.map((data, i) => (
+			{GUIDE_LIST.map((data, i) => (
 				<Style.CategoryWrap key={`${data.category}-${i}`}>
 					<h2>{data.category}</h2>
 					<Style.TableWrap>
