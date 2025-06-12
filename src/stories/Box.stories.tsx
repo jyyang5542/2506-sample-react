@@ -1,8 +1,8 @@
-import { CodeBlock, CodeLine } from '@/components/Base';
+import { CodeBlock, CodeLine } from '@/components/atoms';
 import { Base } from '@/styles/Base.style';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
-const ArgChildren = () => {
+const Description = () => {
 	const CODE = `/* 기본 div 태그 상태 */
 <Base.Box>
   // 
@@ -42,7 +42,7 @@ const meta = {
 	decorators: [
 		() => (
 			<Base.Box>
-				<ArgChildren />
+				<Description />
 			</Base.Box>
 		)
 	],

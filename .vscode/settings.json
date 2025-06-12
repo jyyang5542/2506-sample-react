@@ -1,5 +1,4 @@
 {
-	// 단어 체크 예외 설정
 	"cSpell.words": [
 		"breakline",
 		"brotliSize",
@@ -61,20 +60,29 @@
 		"YYMM",
 		"zustand"
 	],
-	// explorer tree tab size
 	"workbench.tree.indent": 12,
-	// formatter prettier 설정
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	// 저장시 format
 	"editor.formatOnSave": true,
-	// auto bracketPair
 	"editor.bracketPairColorization.enabled": true,
-	// auto tag
 	"editor.linkedEditing": true,
 	"editor.codeActionsOnSave": {
 		"source.organizeImports": "explicit",
 		"source.fixAll.eslint": "explicit",
 		"source.fixAll": "explicit"
 	},
-	"auto-rename-tag.activationOnLanguage": ["*"]
+	"auto-rename-tag.activationOnLanguage": ["*"],
+	"quickFileSetting": [
+		{
+			"extension": ".tsx",
+			"template": "import { style } from './${folderName}.style.tsx';\n\ninterface Props {\n\t\n}\n\nconst ${folderName} = ({}: Props) => {\n\treturn (\n\t\t\n\t);\n}\n\nexport default ${folderName};"
+		},
+		{
+			"extension": ".style.tsx",
+			"template": "'use client';\n\nimport styled from 'styled-components';\n\nexport const Story = {\n\t\n};"
+		},
+		{
+			"extension": ".stories.tsx",
+			"template": "import type { Meta, StoryObj } from '@storybook/nextjs-vite';\nimport { Base } from '@/styles/Base.style';\nimport { CodeBlock, CodeLine } from '@/components/atoms';\nimport ${folderName} from './${folderName}';\n\nconst Description = () => {\n\tconst CODE = `/* 기본 */\n<CodeBlock>\n\t//\n</CodeBlock>\n`;\n\n\treturn (\n\t\t<div>\n\t\t\t<h1>${folderName}</h1>\n\t\t\t<p>\n\t\t\t\t설명을 작성하세요\n\t\t\t\t<br />\n\t\t\t\t<br />\n\t\t\t\t<CodeLine>{`import ${folderName} from './${folderName}'`}</CodeLine> 한 뒤 다음과 같이 사용합니다.\n\t\t\t</p>\n\t\t\t<CodeBlock>{CODE}</CodeBlock>\n\t\t</div>\n\t);\n};\n\nconst meta = {\n\ttitle: 'Base/${folderName}',\n\tcomponent: ${folderName},\n\tparameters: {},\n\ttags: ['autodocs'],\n\targTypes: {\n\t\t//\n\t},\n\targs: {\n\t\t//\n\t}\n} satisfies Meta<typeof ${folderName}>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\nexport const Docs: Story = {\n\tdecorators: [\n\t\t() => (\n\t\t\t<Base.Box>\n\t\t\t\t<Description />\n\t\t\t</Base.Box>\n\t\t)\n\t],\n\targs: {}\n};\n\nexport const Default: Story = {\n\targs: {}\n};\n\nexport const 옵션명: Story = {\n\targs: {\n\t\t// 옵션: 값\n\t}\n};"
+		}
+	]
 }

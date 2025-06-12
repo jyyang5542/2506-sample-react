@@ -1,6 +1,6 @@
 'use client';
 
-import { CodeLine } from '@/components/Base';
+import { CodeLine } from '@/components/atoms';
 import { GuideList } from '@/constants/Guide';
 import useThemeStore from '@/stores/themeStore';
 import { Base, PADDING_X } from '@/styles/Base.style';

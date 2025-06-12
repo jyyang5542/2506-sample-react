@@ -1,4 +1,4 @@
-import ThemeProvider from '@/components/Base/ThemeProvider/ThemeProvider';
+import ThemeProvider from '@/components/atoms/ThemeProvider/ThemeProvider';
 import { PROJECT } from '@/constants';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
