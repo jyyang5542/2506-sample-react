@@ -62,8 +62,8 @@ const icLocation = 'https://cdn-icons-png.flaticon.com/512/535/535239.png';
 const COMMON_DATA = [
 	{ label: '탭 메뉴 1' },
 	{ label: '탭 메뉴 2', icon: icMypage },
-	{ label: '탭 메뉴 3', icon: icLocation, disabled: true },
-	{ label: '탭 메뉴 4' },
+	{ label: '탭 메뉴 3', disabled: true },
+	{ label: '탭 메뉴 4', icon: icLocation },
 	{ label: '탭 메뉴 5' },
 	{ label: 'DUMMY' },
 	{ label: 'DUMMY' },
