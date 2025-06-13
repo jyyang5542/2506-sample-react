@@ -1,5 +1,5 @@
-// import { Base } from '@/styles/Base.style';
 import type { ITabBtn, ITabBtnLink, ITabBtnPanel } from '@/components/molecules/Tabs/tabsType';
+import { useRef } from 'react';
 import { Style } from './TabBtn.style';
 
 type Props = (ITabBtnLink | ITabBtnPanel) & ITabBtn;
@@ -18,13 +18,22 @@ const TabBtn = ({ index, type, variant, theme, setActiveIndex, ...props }: Props
 		onClick: () => handleOnClick('onClick' in props ? props.onClick : undefined)
 	};
 
+	const btnRef = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
+
 	const handleOnClick = (onClick?: () => void): void => {
 		setActiveIndex(index);
 		onClick?.();
+		if (!btnRef.current) return;
+
+		btnRef.current.scrollIntoView({
+			behavior: 'smooth',
+			inline: 'nearest',
+			block: 'nearest'
+		});
 	};
 
 	return (
-		<Style.TabBtn {...btnProps}>
+		<Style.TabBtn ref={btnRef} {...btnProps}>
 			{!!props.icon && <Style.Icon src={props.icon} alt={`${label} 아이콘`} />}
 			<span>{label}</span>
 		</Style.TabBtn>

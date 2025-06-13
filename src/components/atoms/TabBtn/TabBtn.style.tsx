@@ -1,6 +1,7 @@
 'use client';
 
 import type { TTabVariant } from '@/components/molecules/Tabs/tabsType';
+import { FONTS } from '@/constants/fonts';
 import { Base } from '@/styles/Base.style';
 import { darkTheme, lightTheme } from '@/styles/theme';
 import { TTheme } from '@/types';
@@ -8,7 +9,7 @@ import { hexToRgba } from '@/utils/hexToRgba';
 import styled, { css } from 'styled-components';
 
 export const Style = {
-	TabBtn: styled(Base.EmptyButton)<{ $isActive: boolean; variant?: TTabVariant; theme: TTheme; disabled?: boolean }>`
+	TabBtn: styled(Base.EmptyButton)<{ $isActive: boolean; variant?: TTabVariant; theme: TTheme }>`
 		flex-shrink: 0;
 		display: inline-flex;
 		align-items: center;
@@ -50,14 +51,24 @@ export const Style = {
 			} else {
 				const border = `2px solid ${isThemeLight ? lightTheme.text : darkTheme.text}`;
 				return css`
-					${$isActive &&
-					(variant === 'border-top'
+					height: 40px;
+					padding: 0 8px;
+
+					${$isActive
 						? css`
-								border-top: ${border};
+								font-weight: ${FONTS.WEIGHT.BOLD};
+
+								${variant === 'border-top'
+									? css`
+											border-top: ${border};
+									  `
+									: css`
+											border-bottom: ${border};
+									  `}
 						  `
 						: css`
-								border-bottom: ${border};
-						  `)}
+								opacity: 0.5;
+						  `}
 				`;
 			}
 		}}

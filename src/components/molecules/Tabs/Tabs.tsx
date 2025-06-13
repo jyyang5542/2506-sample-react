@@ -1,4 +1,3 @@
-// import { Base } from '@/styles/Base.style';
 import { TabBtn } from '@/components/atoms';
 import useThemeStore from '@/stores/themeStore';
 import type { ISpacing } from '@/types/baseStyle';

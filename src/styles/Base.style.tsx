@@ -43,7 +43,7 @@ export const Base = {
 		${({ ellipsis }) => ellipsis && ellipsisStyle(ellipsis)};
 	`,
 
-	EmptyButton: styled.button`
+	EmptyButton: styled.button<{ disabled?: boolean }>`
 		margin: 0;
 		padding: 0;
 		font-size: ${DEFAULT_FONT_SIZE}px;
@@ -55,9 +55,13 @@ export const Base = {
 		opacity: 1;
 		cursor: pointer;
 
-		&:disabled {
-			opacity: 0.5;
-		}
+		${({ disabled = false }) =>
+			disabled &&
+			css`
+				pointer-events: none;
+				cursor: default;
+				opacity: 0.2 !important;
+			`}
 
 		img {
 			object-fit: contain;
