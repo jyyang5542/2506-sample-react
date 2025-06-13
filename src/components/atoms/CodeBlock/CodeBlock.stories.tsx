@@ -1,5 +1,5 @@
 import { CodeBlock, CodeLine } from '@/components/atoms';
-import { syntaxHighlighterLanguages } from '@/mocks/syntaxHighlighter.mock';
+import { LANGUAGES } from '@/constants/syntaxHighlighter';
 import { Base } from '@/styles/Base.style';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
@@ -51,7 +51,7 @@ const meta = {
 		language: {
 			description: '사용한 코드의 언어',
 			control: 'select',
-			options: syntaxHighlighterLanguages
+			options: LANGUAGES
 		},
 		showLineNumbers: { control: 'boolean' }
 	},

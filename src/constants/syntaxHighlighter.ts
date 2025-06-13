@@ -1,6 +1,6 @@
 import type { TSyntaxHighlighterLanguage } from '@/types/syntaxHighlighter';
 
-export const syntaxHighlighterLanguages: TSyntaxHighlighterLanguage[] = [
+export const LANGUAGES: TSyntaxHighlighterLanguage[] = [
 	'actionscript',
 	'apache',
 	'arduino',
@@ -63,4 +63,4 @@ export const syntaxHighlighterLanguages: TSyntaxHighlighterLanguage[] = [
 	'mathematica',
 	'pgsql',
 	'properties'
-];
+] as const;
