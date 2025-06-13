@@ -1,5 +1,5 @@
 // import { Base } from '@/styles/Base.style';
-// import { Style } from './Footer.style.tsx';
+// import { Style } from './Footer.style';
 
 interface Props {}
 

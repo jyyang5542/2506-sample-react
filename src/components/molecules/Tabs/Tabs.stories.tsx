@@ -7,7 +7,7 @@ import Tabs from './Tabs';
 import type { ITabBtnLink, ITabBtnPanel } from './tabsType';
 
 const meta = {
-	title: 'Molecule/Tabs',
+	title: 'Molecules/Tabs',
 	component: Tabs,
 	parameters: {},
 	tags: ['autodocs'],

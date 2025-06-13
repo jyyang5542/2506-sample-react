@@ -49,21 +49,35 @@ export const Style = {
 						  `}
 				`;
 			} else {
-				const border = `2px solid ${isThemeLight ? lightTheme.text : darkTheme.text}`;
 				return css`
-					height: 40px;
+					position: relative;
+					line-height: 40px;
 					padding: 0 8px;
 
 					${$isActive
 						? css`
 								font-weight: ${FONTS.WEIGHT.BOLD};
 
+								&::after {
+									content: '';
+									position: absolute;
+									display: block;
+									width: 100%;
+									height: 2px;
+									left: 0;
+									background-color: ${isThemeLight ? lightTheme.text : darkTheme.text};
+								}
+
 								${variant === 'border-top'
 									? css`
-											border-top: ${border};
+											&::after {
+												top: 0;
+											}
 									  `
 									: css`
-											border-bottom: ${border};
+											&::after {
+												bottom: 0;
+											}
 									  `}
 						  `
 						: css`

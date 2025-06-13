@@ -1,24 +1,7 @@
-import { CodeBlock, CodeLine } from '@/components/atoms';
+import Description, { type IDescription } from '@/stories/components/Description';
 import { Base } from '@/styles/Base.style';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import Footer from './Footer';
-
-const Description = () => {
-	const CODE = `<Footer />`;
-
-	return (
-		<div>
-			<h1>Footer</h1>
-			<div>
-				설명을 작성하세요
-				<br />
-				<br />
-				<CodeLine>{`import { Footer } from '@/components/molecules'`}</CodeLine> 한 뒤 다음과 같이 사용합니다.
-			</div>
-			<CodeBlock>{CODE}</CodeBlock>
-		</div>
-	);
-};
 
 const meta = {
 	title: 'Molecules/Footer',
@@ -37,11 +20,18 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+const descProps: IDescription = {
+	componentName: 'Footer',
+	importData: '',
+	code: '',
+	description: ''
+};
+
 export const Docs: Story = {
 	decorators: [
 		() => (
 			<Base.Box>
-				<Description />
+				<Description {...descProps} />
 			</Base.Box>
 		)
 	],
