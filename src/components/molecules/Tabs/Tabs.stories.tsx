@@ -32,10 +32,17 @@ const meta = {
 	tags: ['autodocs'],
 	argTypes: {
 		data: { description: '탭 메뉴의 각 데이터', control: false },
+		type: { description: '탭 메뉴의 타입<br />`button`으로 사용할 건지, `a`로 사용할 건지', control: 'select', options: ['panel', 'link'] },
+		variant: { description: '탭 메뉴의 스타일', control: 'select', options: ['border-top', 'border-bottom', 'round'] },
+		activeIndex: { description: '최초 로드 시 active 될 탭의 index', control: 'number' },
+		setActiveIndex: { description: '페이지에서 컴포넌트로 내려주는 `setState`', control: false },
 		...ARG_TYPES.SPACING
 	},
 	args: {
-		data: []
+		data: [],
+		type: 'panel',
+		variant: 'border-top',
+		activeIndex: 0
 	}
 } satisfies Meta<typeof Tabs>;
 
@@ -79,9 +86,9 @@ type StoryConfig = {
 	props: Partial<Parameters<typeof Tabs>[0]>;
 };
 
-const createStory = (props: StoryConfig['props'], name: string) => {
+const createStory = (props: StoryConfig['props'] & { initial?: number }, name: string) => {
 	const Story = () => {
-		const [activeIndex, setActiveIndex] = useState(0);
+		const [activeIndex, setActiveIndex] = useState<number>(props.initial || 0);
 
 		return <Tabs {...props} data={props.data ?? panelData} activeIndex={activeIndex} setActiveIndex={setActiveIndex} />;
 	};
@@ -96,7 +103,7 @@ const panelData = COMMON_DATA.map(item => ({
 })) as ITabBtnPanel[];
 
 export const Default = createStory({}, 'Default');
-export const TypeLink = createStory({ type: 'link', data: COMMON_DATA as ITabBtnLink[] }, 'TypeLink');
+export const TypeLink = createStory({ type: 'link', data: COMMON_DATA as ITabBtnLink[], initial: 3 }, 'TypeLink');
 export const VariantRound = createStory({ variant: 'round' }, 'VariantRound');
 export const VariantBorderTop = createStory({ variant: 'border-top' }, 'VariantBorderTop');
 export const VariantBorderBottom = createStory({ variant: 'border-bottom' }, 'VariantBorderBottom');
