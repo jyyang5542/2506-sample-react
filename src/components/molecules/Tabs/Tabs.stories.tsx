@@ -1,29 +1,10 @@
-import { CodeBlock, CodeLine } from '@/components/atoms';
 import { ARG_TYPES } from '@/constants/storybook';
+import Description, { type IDescription } from '@/stories/components/Description';
 import { Base } from '@/styles/Base.style';
 import type { Meta } from '@storybook/nextjs-vite';
 import { useState } from 'react';
 import Tabs from './Tabs';
 import type { ITabBtnLink, ITabBtnPanel } from './tabsType';
-
-const Description = () => {
-	const CODE = `/* 기본 */
-<Tabs />
-`;
-
-	return (
-		<div>
-			<h1>Tabs</h1>
-			<div>
-				설명을 작성하세요
-				<br />
-				<br />
-				<CodeLine>{`import { Tabs } from '@/components/molecules'`}</CodeLine> 한 뒤 다음과 같이 사용합니다.
-			</div>
-			<CodeBlock>{CODE}</CodeBlock>
-		</div>
-	);
-};
 
 const meta = {
 	title: 'Molecule/Tabs',
@@ -48,10 +29,17 @@ const meta = {
 
 export default meta;
 
+const descProps: IDescription = {
+	componentName: 'Tabs',
+	importData: `import { Tabs } from '@/components/molecules'`,
+	code: `<Tabs data={[]} type="link" variant="round" activeIndex={2} setActiveIndex={setActiveIndex} />`,
+	description: ''
+};
+
 export const Docs: React.FC = () => {
 	return (
 		<Base.Box>
-			<Description />
+			<Description {...descProps} />
 		</Base.Box>
 	);
 };
