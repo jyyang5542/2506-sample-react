@@ -1,10 +1,15 @@
-import { CodeBlock, CodeLine } from '@/components/atoms';
+import { CodeLine } from '@/components/atoms';
 import { ARG_TYPES } from '@/constants/storybook';
+import { Description } from '@/stories/components';
+import type { IDescription } from '@/stories/types';
 import { Base } from '@/styles/Base.style';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import withSourceCode from './utils/withSourceCode';
 
-const Description = () => {
-	const CODE = `/* 기본 div 태그 상태 */
+const descProps: IDescription = {
+	componentName: 'Base.Box',
+	importData: `import { Base } from '@/styles/Base.style';`,
+	code: `/* 기본 div 태그 상태 */
 <Base.Box>
   // 
 </Base.Box>
@@ -17,23 +22,14 @@ const Description = () => {
 /* a 태그로 변경 */
 <Base.Box as="a">
   // 
-</Base.Box>`;
-
-	return (
-		<div>
-			<h1>Base.Box</h1>
-			<div>
-				여백을 props로 간단하게 줄 수 있는 블록 컴포넌트입니다.
-				<br />
-				기본 <CodeLine>{`<div />`}</CodeLine>이지만 <CodeLine>as</CodeLine> 속성을 사용해 다른 HTML 태그로 변경도 가능합니다.
-				<br />
-				<br />
-				<CodeLine>{`import { Base } from '@/styles/Base.style';`}</CodeLine> 한 뒤 다음과 같이 사용합니다.
-			</div>
+</Base.Box>`,
+	description: (
+		<>
+			여백을 props로 간단하게 줄 수 있는 블록 컴포넌트입니다.
 			<br />
-			<CodeBlock>{CODE}</CodeBlock>
-		</div>
-	);
+			기본 <CodeLine>{`<div />`}</CodeLine>이지만 <CodeLine>as</CodeLine> 속성을 사용해 다른 HTML 태그로 변경도 가능합니다.
+		</>
+	)
 };
 
 const meta = {
@@ -43,7 +39,7 @@ const meta = {
 	decorators: [
 		() => (
 			<Base.Box>
-				<Description />
+				<Description {...descProps} />
 			</Base.Box>
 		)
 	],
@@ -61,3 +57,4 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
 	args: {}
 };
+Default.parameters = withSourceCode(`<Base.Box></Base.Box>`);

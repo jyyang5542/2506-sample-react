@@ -1,5 +1,8 @@
 import { CodeBlock, CodeLine } from '@/components/atoms';
 import { LANGUAGES } from '@/constants/syntaxHighlighter';
+import { Description } from '@/stories/components';
+import type { IDescription } from '@/stories/types';
+import withSourceCode from '@/stories/utils/withSourceCode';
 import { Base } from '@/styles/Base.style';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
@@ -10,36 +13,6 @@ interface Props {}
 const 컴포넌트명 = ({}: Props) => {
 		return <></>;
 };`;
-
-const Description = () => {
-	const CODE = `/* 기본 */
-<CodeBlock>
-  // 
-</CodeBlock>
-
-/* language 설정*/
-<CodeBlock language="javascript">
-  // 
-</CodeBlock>
-
-/* 라인 넘버 보이기 */
-<CodeBlock showLineNumbers>
-  // 
-</CodeBlock>`;
-
-	return (
-		<div>
-			<h1>CodeBlock</h1>
-			<div>
-				<CodeLine>SyntaxHighlighter</CodeLine>를 사용해 코드블럭을 보여줄 수 있는 컴포넌트입니다.
-				<br />
-				<br />
-				<CodeLine>{`import { CodeBlock } from '@/components/atoms';`}</CodeLine> 한 뒤 다음과 같이 사용합니다.
-			</div>
-			<CodeBlock>{CODE}</CodeBlock>
-		</div>
-	);
-};
 
 const meta = {
 	title: 'Atoms/CodeBlock',
@@ -65,16 +38,41 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+const descProps: IDescription = {
+	componentName: 'CodeBlock',
+	importData: `import { CodeBlock } from '@/components/atoms'`,
+	code: `/* 기본 */
+<CodeBlock>
+  // 
+</CodeBlock>
+
+/* language 설정*/
+<CodeBlock language="javascript">
+  // 
+</CodeBlock>
+
+/* 라인 넘버 보이기 */
+<CodeBlock showLineNumbers>
+  // 
+</CodeBlock>`,
+	description: (
+		<>
+			<CodeLine>SyntaxHighlighter</CodeLine>를 사용해 코드블럭을 보여줄 수 있는 컴포넌트입니다.
+		</>
+	)
+};
+
 export const Docs: Story = {
 	decorators: [
 		() => (
 			<Base.Box>
-				<Description />
+				<Description {...descProps} />
 			</Base.Box>
 		)
 	],
 	args: {}
 };
+Docs.parameters = withSourceCode(`<CodeBlock>YOUR_CODE</CodeBlock>`);
 
 export const Default: Story = {
 	args: {}
@@ -82,7 +80,10 @@ export const Default: Story = {
 
 export const Language: Story = {
 	args: {
-		language: 'javascript'
+		language: 'python',
+		children: `def is_even(n):
+    return n % 2 == 0
+`
 	}
 };
 

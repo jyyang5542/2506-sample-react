@@ -5,7 +5,7 @@ import { FONTS } from '@/constants/fonts';
 import { Base } from '@/styles/Base.style';
 import { darkTheme, lightTheme } from '@/styles/theme';
 import { TTheme } from '@/types';
-import { hexToRgba } from '@/utils/hexToRgba';
+import hexToRgba from '@/utils/hexToRgba';
 import styled, { css } from 'styled-components';
 
 export const Style = {

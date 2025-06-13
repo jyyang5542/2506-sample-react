@@ -1,12 +1,5 @@
 import { CodeBlock, CodeLine } from '@/components/atoms';
-import type { TChildren } from '@/types';
-
-export interface IDescription {
-	componentName: string;
-	importData: string;
-	code: string;
-	description?: TChildren;
-}
+import { IDescription } from '@/stories/types';
 
 const Description = ({ componentName, importData, code, description }: IDescription) => {
 	return (
@@ -15,7 +8,7 @@ const Description = ({ componentName, importData, code, description }: IDescript
 			<div>
 				{!!description && (
 					<>
-						description
+						{description}
 						<br />
 						<br />
 					</>

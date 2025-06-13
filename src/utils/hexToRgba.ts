@@ -1,4 +1,4 @@
-export const hexToRgba = (hex: string, alpha: number): string => {
+const hexToRgba = (hex: string, alpha: number): string => {
 	hex = hex.replace(/^#/, '');
 
 	if (hex.length === 3) {
@@ -18,3 +18,5 @@ export const hexToRgba = (hex: string, alpha: number): string => {
 
 	return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 };
+
+export default hexToRgba;

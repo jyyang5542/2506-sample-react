@@ -1,10 +1,9 @@
 import { TabBtn } from '@/components/atoms';
 import useThemeStore from '@/stores/themeStore';
-import type { ISpacing } from '@/types/baseStyle';
 import { Style } from './Tabs.style';
 import type { ITypeLink, ITypePanel } from './tabsType';
 
-type Props = (ITypePanel | ITypeLink) & ISpacing;
+type Props = ITypePanel | ITypeLink;
 
 const Tabs = (props: Props) => {
 	const { themeMode } = useThemeStore();
