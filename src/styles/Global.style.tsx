@@ -1,7 +1,8 @@
 'use client';
 
-import { COLORS, hexToRgba } from '@/constants/colors';
+import { COLORS } from '@/constants/colors';
 import type { TTheme } from '@/types';
+import { hexToRgba } from '@/utils/hexToRgba';
 import { createGlobalStyle, css } from 'styled-components';
 import { darkTheme, lightTheme } from './theme';
 

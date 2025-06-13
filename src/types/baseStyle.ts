@@ -1,3 +1,5 @@
+export type TSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+
 export interface ISpacing {
 	px?: number;
 	pl?: number;

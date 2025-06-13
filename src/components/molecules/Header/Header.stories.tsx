@@ -9,12 +9,12 @@ const Description = () => {
 	return (
 		<div>
 			<h1>Header</h1>
-			<p>
+			<div>
 				설명을 작성하세요
 				<br />
 				<br />
 				<CodeLine>{`import { Header } from '@/components/molecules'`}</CodeLine> 한 뒤 다음과 같이 사용합니다.
-			</p>
+			</div>
 			<CodeBlock>{CODE}</CodeBlock>
 		</div>
 	);

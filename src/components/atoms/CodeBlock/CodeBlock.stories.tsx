@@ -30,12 +30,12 @@ const Description = () => {
 	return (
 		<div>
 			<h1>CodeBlock</h1>
-			<p>
+			<div>
 				<CodeLine>SyntaxHighlighter</CodeLine>를 사용해 코드블럭을 보여줄 수 있는 컴포넌트입니다.
 				<br />
 				<br />
 				<CodeLine>{`import { CodeBlock } from '@/components/atoms';`}</CodeLine> 한 뒤 다음과 같이 사용합니다.
-			</p>
+			</div>
 			<CodeBlock>{CODE}</CodeBlock>
 		</div>
 	);

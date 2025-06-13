@@ -4,6 +4,7 @@ import type { ISpacing, ITextProps } from '@/types/baseStyle';
 import styled, { css } from 'styled-components';
 
 export const PADDING_X = 18;
+export const DEFAULT_FONT_SIZE = 16;
 
 export const ellipsisStyle = (lines: number) => css`
 	display: -webkit-box;
@@ -12,6 +13,15 @@ export const ellipsisStyle = (lines: number) => css`
 	text-overflow: ellipsis;
 	-webkit-line-clamp: ${lines};
 	-webkit-box-orient: vertical;
+`;
+
+export const hideScrollBars = () => css`
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
 `;
 
 export const Base = {
@@ -27,9 +37,30 @@ export const Base = {
 	Text: styled.div<ITextProps>`
 		max-width: 100%;
 		${({ color }) => !!color && `color: ${color}`};
-		font-size: ${({ fontSize = 12 }) => fontSize}px;
+		font-size: ${({ fontSize = DEFAULT_FONT_SIZE }) => fontSize}px;
 		font-weight: ${({ fontWeight = 400 }) => fontWeight};
 		line-height: ${({ lineHeight = '1' }) => lineHeight};
 		${({ ellipsis }) => ellipsis && ellipsisStyle(ellipsis)};
+	`,
+
+	EmptyButton: styled.button`
+		margin: 0;
+		padding: 0;
+		font-size: ${DEFAULT_FONT_SIZE}px;
+		line-height: 1;
+		background: none;
+		border: none;
+		outline: none;
+		color: var(--text);
+		opacity: 1;
+		cursor: pointer;
+
+		&:disabled {
+			opacity: 0.5;
+		}
+
+		img {
+			object-fit: contain;
+		}
 	`
 };

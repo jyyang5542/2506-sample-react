@@ -78,4 +78,4 @@ export const GUIDE_LIST: IGuideData[] = [
 			{ pageName: '{페이지명}', dir: `${SECTION.CATEGORY}/{페이지명}`, depth: [''], date: '', memo: <Memo></Memo> }
 		]
 	}
-];
+] as const;
