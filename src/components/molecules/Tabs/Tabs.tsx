@@ -1,7 +1,7 @@
 import { TabBtn } from '@/components/atoms';
 import useThemeStore from '@/stores/themeStore';
 import { Style } from './Tabs.style';
-import type { ITypeLink, ITypePanel } from './tabsType';
+import type { ITypeLink, ITypePanel } from './Tabs.types';
 
 type Props = ITypePanel | ITypeLink;
 

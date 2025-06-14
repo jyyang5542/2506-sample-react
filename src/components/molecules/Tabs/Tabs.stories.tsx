@@ -1,12 +1,12 @@
 import { ARG_TYPES } from '@/constants/storybook';
 import { Description, Required } from '@/stories/components';
-import type { IDescription } from '@/stories/types';
+import type { IDescription } from '@/stories/components/Description/Description.types';
 import { withSourceCode } from '@/stories/utils';
 import { Base } from '@/styles/Base.style';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { Dispatch, SetStateAction } from 'react';
 import Tabs from './Tabs';
-import type { ITabBtnLink, ITabBtnPanel } from './tabsType';
+import type { ITabBtnLink, ITabBtnPanel } from './Tabs.types';
 
 const icMypage = 'https://cdn-icons-png.flaticon.com/512/1144/1144760.png';
 const icLocation = 'https://cdn-icons-png.flaticon.com/512/535/535239.png';

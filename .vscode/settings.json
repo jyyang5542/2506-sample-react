@@ -74,7 +74,7 @@
 	"quickFileSetting": [
 		{
 			"extension": ".tsx",
-			"template": "// import { Base } from '@/styles/Base.style';\n// import { Style } from './${folderName}.style';\n\ninterface Props {\n\t\n}\n\nconst ${folderName} = ({}: Props) => {\n\treturn (\n\t\t\n\t);\n}\n\nexport default ${folderName};"
+			"template": "// import { Base } from '@/styles/Base.style';\nimport { Style } from './${folderName}.style';\n\ninterface Props {\n\t\n}\n\nconst ${folderName} = ({}: Props) => {\n\treturn (\n\t\t<Style.Wrap>${folderName}</Style.Wrap>\n\t);\n}\n\nexport default ${folderName};"
 		},
 		{
 			"extension": ".style.tsx",

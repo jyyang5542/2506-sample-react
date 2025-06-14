@@ -1,6 +1,6 @@
 'use client';
 
-import type { TTabVariant } from '@/components/molecules/Tabs/tabsType';
+import type { TTabVariant } from '@/components/molecules/Tabs/Tabs.types';
 import { FONTS } from '@/constants/fonts';
 import { Base } from '@/styles/Base.style';
 import { darkTheme, lightTheme } from '@/styles/theme';

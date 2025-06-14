@@ -1,5 +1,5 @@
 import { CodeBlock, CodeLine } from '@/components/atoms';
-import { IDescription } from '@/stories/types';
+import { IDescription } from '@/stories/components/Description/Description.types';
 
 const Description = ({ componentName, importData, code, description }: IDescription) => {
 	return (
@@ -13,7 +13,7 @@ const Description = ({ componentName, importData, code, description }: IDescript
 						<br />
 					</>
 				)}
-				<CodeLine>{importData}</CodeLine> 한 뒤 다음과 같이 사용합니다.
+				<CodeLine>{importData}</CodeLine> 한 뒤, 다음과 같이 사용합니다.
 			</div>
 			<br />
 			<CodeBlock>{code}</CodeBlock>

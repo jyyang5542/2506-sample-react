@@ -1,4 +1,4 @@
-import type { TSyntaxHighlighterLanguage } from '@/types/syntaxHighlighter';
+import type { TSyntaxHighlighterLanguage } from '@/types/SyntaxHighlighter.types';
 
 export const LANGUAGES: TSyntaxHighlighterLanguage[] = [
 	'actionscript',

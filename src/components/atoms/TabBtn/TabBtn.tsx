@@ -1,6 +1,6 @@
 'use client';
 
-import type { ITabBtn, ITabBtnLink, ITabBtnPanel } from '@/components/molecules/Tabs/tabsType';
+import type { ITabBtn, ITabBtnLink, ITabBtnPanel } from '@/components/molecules/Tabs/Tabs.types';
 import { useRef } from 'react';
 import { Style } from './TabBtn.style';
 

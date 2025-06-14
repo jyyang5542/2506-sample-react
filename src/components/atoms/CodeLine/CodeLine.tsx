@@ -1,7 +1,7 @@
 'use client';
 
 import useThemeStore from '@/stores/themeStore';
-import type { TSyntaxHighlighterLanguage } from '@/types/syntaxHighlighter';
+import type { TSyntaxHighlighterLanguage } from '@/types/SyntaxHighlighter.types';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { Style } from './CodeLine.style';

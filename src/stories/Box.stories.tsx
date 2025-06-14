@@ -1,7 +1,7 @@
 import { CodeLine } from '@/components/atoms';
 import { ARG_TYPES } from '@/constants/storybook';
 import { Description } from '@/stories/components';
-import type { IDescription } from '@/stories/types';
+import type { IDescription } from '@/stories/components/Description/Description.types';
 import { Base } from '@/styles/Base.style';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import withSourceCode from './utils/withSourceCode';
@@ -54,7 +54,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Docs: Story = {
 	args: {}
 };
-Default.parameters = withSourceCode(`<Base.Box></Base.Box>`);
+Docs.parameters = withSourceCode(`<Base.Box></Base.Box>`);
