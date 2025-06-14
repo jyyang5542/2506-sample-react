@@ -1,2 +1,2 @@
-export { default as Description } from './Description';
-export { default as Required } from './Required';
+export { default as Description } from './Description/Description';
+export { default as Required } from './Required/Required';
