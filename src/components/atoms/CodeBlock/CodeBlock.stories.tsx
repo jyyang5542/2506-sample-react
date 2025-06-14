@@ -38,9 +38,9 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const descProps: IDescription = {
-	componentName: 'CodeBlock',
-	importData: `import { CodeBlock } from '@/components/atoms'`,
+const DESCRIPTION_PROPS: IDescription = {
+	name: 'CodeBlock',
+	from: `import { CodeBlock } from '@/components/atoms'`,
 	code: `/* 기본 */
 <CodeBlock>
   // 
@@ -66,7 +66,7 @@ export const Docs: Story = {
 	decorators: [
 		() => (
 			<Base.Box>
-				<Description {...descProps} />
+				<Description {...DESCRIPTION_PROPS} />
 			</Base.Box>
 		)
 	],

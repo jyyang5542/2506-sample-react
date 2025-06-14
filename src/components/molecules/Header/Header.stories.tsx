@@ -22,9 +22,9 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const descProps: IDescription = {
-	componentName: '',
-	importData: '',
+const DESCRIPTION_PROPS: IDescription = {
+	name: '',
+	from: '',
 	code: '',
 	description: ''
 };
@@ -33,7 +33,7 @@ export const Docs: Story = {
 	decorators: [
 		() => (
 			<Base.Box>
-				<Description {...descProps} />
+				<Description {...DESCRIPTION_PROPS} />
 			</Base.Box>
 		)
 	],

@@ -7,7 +7,7 @@ import { hexToRgba } from '@/utils';
 import styled, { css } from 'styled-components';
 
 export const Style = {
-	Wrap: styled.div<{ theme: TTheme }>`
+	Wrap: styled.div<{ $theme: TTheme }>`
 		padding: 18px;
 
 		${({ theme }) => css`

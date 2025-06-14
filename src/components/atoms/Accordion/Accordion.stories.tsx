@@ -11,10 +11,13 @@ const meta = {
 	parameters: {},
 	tags: ['autodocs'],
 	argTypes: {
-		//
+		opened: { description: '최초 랜더링 시 콘텐츠 노출 여부', control: 'boolean' },
+		title: { control: false },
+		contents: { control: false }
 	},
 	args: {
-		//
+		title: '아코디언 제목입니다.',
+		contents: '아코디언 콘텐츠입니다.'
 	}
 } satisfies Meta<typeof Accordion>;
 
@@ -22,26 +25,30 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const descProps: IDescription = {
-	componentName: 'Accordion',
-	importData: `import { Accordion } from '@/components/atoms'`,
-	// importData: `import Accordion from '절대경로'`,
-	code: `코드를_입력하세요`,
-	description: `설명을_입력하세요`
+const DESCRIPTION_PROPS: IDescription = {
+	name: 'Accordion',
+	from: `import { Accordion } from '@/components/atoms'`,
+	code: `<Accordion title="아코디언 제목입니다." contents="아코디언 콘텐츠입니다." opened />`
 };
 
 export const Docs: Story = {
 	decorators: [
 		() => (
 			<Base.Box>
-				<Description {...descProps} />
+				<Description {...DESCRIPTION_PROPS} />
 			</Base.Box>
 		)
 	],
 	args: {}
 };
-Docs.parameters = withSourceCode(`<Accordion />`);
+Docs.parameters = withSourceCode(DESCRIPTION_PROPS.code);
 
 export const Default: Story = {
 	args: {}
+};
+
+export const Opened: Story = {
+	args: {
+		opened: true
+	}
 };

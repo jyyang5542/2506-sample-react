@@ -6,9 +6,9 @@ import { Base } from '@/styles/Base/Base.style';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import withSourceCode from '../../stories/utils/withSourceCode';
 
-const descProps: IDescription = {
-	componentName: 'Base.Box',
-	importData: `import { Base } from '@/styles/Base/Base.style';`,
+const DESCRIPTION_PROPS: IDescription = {
+	name: 'Base.Box',
+	from: `import { Base } from '@/styles/Base/Base.style';`,
 	code: `/* 기본 div 태그 상태 */
 <Base.Box>
   // 
@@ -39,7 +39,7 @@ const meta = {
 	decorators: [
 		() => (
 			<Base.Box>
-				<Description {...descProps} />
+				<Description {...DESCRIPTION_PROPS} />
 			</Base.Box>
 		)
 	],

@@ -1,8 +1,8 @@
 import type { TChildren } from '@/types';
 
 export interface IDescription {
-	componentName: string;
-	importData: string;
+	name: string;
+	from: string;
 	code: string;
 	description?: TChildren;
 }

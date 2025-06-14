@@ -6,8 +6,8 @@ export type TTabVariant = 'border-top' | 'border-bottom' | 'round';
 
 export interface ITypeCommon extends ISpacing {
 	variant?: TTabVariant;
-	activeIndex: number;
-	setActiveIndex: Dispatch<SetStateAction<number>>;
+	activeIndex?: number;
+	setActiveIndex?: Dispatch<SetStateAction<number>>;
 }
 
 export type TTabType = 'panel' | 'link';

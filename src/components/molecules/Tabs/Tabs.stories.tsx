@@ -4,8 +4,7 @@ import { Description, Required } from '@/stories/components';
 import type { IDescription } from '@/stories/components/Description/Description.types';
 import { withSourceCode } from '@/stories/utils';
 import { Base } from '@/styles/Base/Base.style';
-import type { Meta } from '@storybook/nextjs-vite';
-import { useState } from 'react';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import Tabs from './Tabs';
 
 const icMypage = 'https://cdn-icons-png.flaticon.com/512/1144/1144760.png';
@@ -51,23 +50,21 @@ const meta = {
 			options: ['panel', 'link']
 		},
 		variant: { description: '탭 메뉴의 스타일', control: 'select', options: ['border-top', 'border-bottom', 'round'] },
-		activeIndex: { name: <Required label='activeIndex' />, description: '최초 로드 시 active 될 탭의 index', control: 'number', required: true },
-		setActiveIndex: {
-			name: <Required label='setActiveIndex' />,
-			description: '페이지에서 컴포넌트로 내려주는 `setState`',
-			control: false,
-			required: true
-		},
+		activeIndex: { description: '최초 로드 시 active 될 탭의 index', control: 'number', required: true },
+		setActiveIndex: { description: '페이지에서 컴포넌트로 내려주는 `setState`', control: false, required: true },
 		...ARG_TYPES.SPACING
 	},
-	args: {}
+	args: {
+		data: panelData,
+		type: 'panel'
+	}
 } satisfies Meta<typeof Tabs>;
 
 export default meta;
 
-const descProps: IDescription = {
-	componentName: 'Tabs',
-	importData: `import { Tabs } from '@/components/molecules'`,
+const DESCRIPTION_PROPS: IDescription = {
+	name: 'Tabs',
+	from: `import { Tabs } from '@/components/molecules'`,
 	code: `<Tabs data={[]} type="link" variant="round" activeIndex={2} setActiveIndex={setActiveIndex} />`,
 	description: ''
 };
@@ -75,46 +72,37 @@ const descProps: IDescription = {
 export const Docs = () => {
 	return (
 		<Base.Box>
-			<Description {...descProps} />
+			<Description {...DESCRIPTION_PROPS} />
 		</Base.Box>
 	);
 };
-Docs.parameters = withSourceCode(`<Tabs data={panelData} type='panel' activeIndex={activeIndex} setActiveIndex={setActiveIndex} />`);
+Docs.parameters = withSourceCode(`<Tabs data={panelData} activeIndex={0} />`);
 
-export const Default = () => {
-	const [activeIndex, setActiveIndex] = useState<number>(0);
-	return <Tabs data={panelData} type='panel' activeIndex={activeIndex} setActiveIndex={setActiveIndex} />;
+export const Default: StoryObj<typeof meta> = {
+	args: {}
 };
-Default.parameters = withSourceCode(`<Tabs data={panelData} type='panel' activeIndex={activeIndex} setActiveIndex={setActiveIndex} />`);
 
-export const TypeLink = () => {
-	const [activeIndex, setActiveIndex] = useState<number>(3);
-	return <Tabs data={COMMON_DATA as ITabBtnLink[]} type='link' activeIndex={activeIndex} setActiveIndex={setActiveIndex} />;
+export const TypeLink: StoryObj<typeof meta> = {
+	args: {
+		data: COMMON_DATA as ITabBtnLink[],
+		activeIndex: 3
+	}
 };
-TypeLink.parameters = withSourceCode(
-	`<Tabs data={COMMON_DATA as ITabBtnLink[]} type='link' activeIndex={activeIndex} setActiveIndex={setActiveIndex} />`
-);
 
-export const VariantRound = () => {
-	const [activeIndex, setActiveIndex] = useState<number>(0);
-	return <Tabs data={panelData} type='panel' variant='round' activeIndex={activeIndex} setActiveIndex={setActiveIndex} />;
+export const VariantRound: StoryObj<typeof meta> = {
+	args: {
+		variant: 'round'
+	}
 };
-VariantRound.parameters = withSourceCode(
-	`<Tabs data={panelData} type='panel' variant="round" activeIndex={activeIndex} setActiveIndex={setActiveIndex} />`
-);
 
-export const VariantBorderTop = () => {
-	const [activeIndex, setActiveIndex] = useState<number>(0);
-	return <Tabs data={panelData} type='panel' variant='border-top' activeIndex={activeIndex} setActiveIndex={setActiveIndex} />;
+export const VariantBorderTop: StoryObj<typeof meta> = {
+	args: {
+		variant: 'border-top'
+	}
 };
-VariantBorderTop.parameters = withSourceCode(
-	`<Tabs data={panelData} type='panel' variant="border-top" activeIndex={activeIndex} setActiveIndex={setActiveIndex} />`
-);
 
-export const VariantBorderBottom = () => {
-	const [activeIndex, setActiveIndex] = useState<number>(0);
-	return <Tabs data={panelData} type='panel' variant='border-bottom' activeIndex={activeIndex} setActiveIndex={setActiveIndex} />;
+export const VariantBorderBottom: StoryObj<typeof meta> = {
+	args: {
+		variant: 'border-bottom'
+	}
 };
-VariantBorderBottom.parameters = withSourceCode(
-	`<Tabs data={panelData} type='panel' variant="border-bottom" activeIndex={activeIndex} setActiveIndex={setActiveIndex} />`
-);

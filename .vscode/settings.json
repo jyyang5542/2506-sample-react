@@ -74,7 +74,7 @@
 	"quickFileSetting": [
 		{
 			"extension": ".tsx",
-			"template": "// import { Base } from '@/styles/Base/Base.style';\nimport { Style } from './${folderName}.style';\n\ninterface Props {\n\t\n}\n\nconst ${folderName} = ({}: Props) => {\n\treturn (\n\t\t<Style.Wrap>${folderName}</Style.Wrap>\n\t);\n}\n\nexport default ${folderName};"
+			"template": "import { Style } from './${folderName}.style';\n\ninterface Props {\n\t\n}\n\nconst ${folderName} = ({}: Props) => {\n\treturn (\n\t\t<Style.Wrap>${folderName}</Style.Wrap>\n\t);\n}\n\nexport default ${folderName};"
 		},
 		{
 			"extension": ".style.tsx",
@@ -82,7 +82,7 @@
 		},
 		{
 			"extension": ".stories.tsx",
-			"template": "import { Description } from '@/stories/components';\nimport type { IDescription } from '@/stories/types';\nimport withSourceCode from '@/stories/utils/withSourceCode';\nimport type { Meta, StoryObj } from '@storybook/nextjs-vite';\nimport { Base } from '@/styles/Base/Base.style';\nimport ${folderName} from './${folderName}';\n\nconst meta = {\n\ttitle: '카테고리명/${folderName}',\n\tcomponent: ${folderName},\n\tparameters: {},\n\ttags: ['autodocs'],\n\targTypes: {\n\t\t//\n\t},\n\targs: {\n\t\t//\n\t}\n} satisfies Meta<typeof ${folderName}>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\nconst descProps: IDescription = {\n\tcomponentName: '${folderName}',\n\timportData: `import { ${folderName} } from '절대경로'`,\n\t// importData: `import ${folderName} from '절대경로'`,\n\tcode: `코드를_입력하세요`,\n\tdescription: `설명을_입력하세요`\n};\n\nexport const Docs: Story = {\n\tdecorators: [\n\t\t() => (\n\t\t\t<Base.Box>\n\t\t\t\t<Description {...descProps} />\n\t\t\t</Base.Box>\n\t\t)\n\t],\n\targs: {}\n};\nDocs.parameters = withSourceCode(`<${folderName} />`);\n\nexport const Default: Story = {\n\targs: {}\n};"
+			"template": "import { Description } from '@/stories/components';\nimport type { IDescription } from '@/stories/components/Description/Description.types';\nimport withSourceCode from '@/stories/utils/withSourceCode';\nimport type { Meta, StoryObj } from '@storybook/nextjs-vite';\nimport { Base } from '@/styles/Base/Base.style';\nimport ${folderName} from './${folderName}';\n\nconst meta = {\n\ttitle: '카테고리명/${folderName}',\n\tcomponent: ${folderName},\n\tparameters: {},\n\ttags: ['autodocs'],\n\targTypes: {\n\t\t//\n\t},\n\targs: {\n\t\t//\n\t}\n} satisfies Meta<typeof ${folderName}>;\n\nexport default meta;\n\ntype Story = StoryObj<typeof meta>;\n\nconst DESCRIPTION_PROPS: IDescription = {\n\tname: '${folderName}',\n\tfrom: `import { ${folderName} } from '절대경로'`,\n\t// from: `import ${folderName} from '절대경로'`,\n\tcode: `코드를_입력하세요`,\n\tdescription: `설명을_입력하세요`\n};\n\nexport const Docs: Story = {\n\tdecorators: [\n\t\t() => (\n\t\t\t<Base.Box>\n\t\t\t\t<Description {...DESCRIPTION_PROPS} />\n\t\t\t</Base.Box>\n\t\t)\n\t],\n\targs: {}\n};\nDocs.parameters = withSourceCode(`<${folderName} />`);\n\nexport const Default: Story = {\n\targs: {}\n};"
 		}
 	]
 }

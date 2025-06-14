@@ -13,7 +13,7 @@ const Guide = ({}: Props) => {
 	const { themeMode } = useThemeStore();
 
 	return (
-		<Style.Wrap theme={themeMode}>
+		<Style.Wrap $theme={themeMode}>
 			<h1>페이지 가이드</h1>
 			<Style.CategoryWrap>
 				<h2>UI 가이드</h2>

@@ -1,19 +1,43 @@
 import { TabBtn } from '@/components/atoms';
 import useThemeStore from '@/stores/themeStore';
+import { useEffect, useState } from 'react';
 import { Style } from './Tabs.style';
 import type { ITypeLink, ITypePanel } from './Tabs.types';
 
 type Props = ITypePanel | ITypeLink;
 
-const Tabs = (props: Props) => {
+const Tabs = ({
+	data,
+	type = 'panel',
+	variant = 'border-top',
+	activeIndex = 0,
+	setActiveIndex,
+	px,
+	pl,
+	pr,
+	py,
+	pt,
+	pb,
+	mx,
+	ml,
+	mr,
+	my,
+	mt,
+	mb
+}: Props) => {
 	const { themeMode } = useThemeStore();
-	const { data, type = 'panel', variant = 'border-top', activeIndex = 0, setActiveIndex, px, pl, pr, py, pt, pb, mx, ml, mr, my, mt, mb } = props;
+	const [currentActiveIndex, setCurrentActiveIndex] = useState<number>(activeIndex);
+
+	useEffect(() => {
+		setActiveIndex?.(currentActiveIndex);
+	}, [currentActiveIndex, setActiveIndex]);
 
 	const commonProps = {
 		theme: themeMode,
 		type,
 		variant,
-		setActiveIndex,
+		activeIndex: currentActiveIndex,
+		setActiveIndex: setCurrentActiveIndex,
 		px,
 		pl,
 		pr,
@@ -36,7 +60,7 @@ const Tabs = (props: Props) => {
 						index: idx,
 						...commonProps,
 						...item,
-						$isActive: activeIndex === idx
+						$isActive: currentActiveIndex === idx
 					};
 					return <TabBtn key={`tab-${idx}-${item.label}`} {...itemProps} />;
 				})}

@@ -1,6 +1,5 @@
 'use client';
 
-import StyledComponentsRegistry from '@/libs/registry';
 import useThemeStore from '@/stores/themeStore';
 import GlobalStyle from '@/styles/Global.style';
 import { darkTheme, lightTheme } from '@/styles/theme';
@@ -24,12 +23,10 @@ const ThemeProvider = ({ children }: Props) => {
 	const currentTheme = themeMode === 'light' ? lightTheme : darkTheme;
 
 	return (
-		<StyledComponentsRegistry>
-			<Provider theme={currentTheme}>
-				<GlobalStyle $themeMode={themeMode} />
-				{children}
-			</Provider>
-		</StyledComponentsRegistry>
+		<Provider theme={currentTheme}>
+			<GlobalStyle $themeMode={themeMode} />
+			{children}
+		</Provider>
 	);
 };
 
