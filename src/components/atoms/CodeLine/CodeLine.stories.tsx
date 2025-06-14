@@ -1,7 +1,7 @@
 import { LANGUAGES } from '@/constants/syntaxHighlighter';
 import { Description } from '@/stories/components';
 import type { IDescription } from '@/stories/types';
-import withSourceCode from '@/stories/utils/withSourceCode';
+import { withSourceCode } from '@/stories/utils';
 import { Base } from '@/styles/Base.style';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import CodeLine from './CodeLine';

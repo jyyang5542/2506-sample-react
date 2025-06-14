@@ -1,7 +1,7 @@
 import { ARG_TYPES } from '@/constants/storybook';
 import { Description, Required } from '@/stories/components';
 import type { IDescription } from '@/stories/types';
-import withSourceCode from '@/stories/utils/withSourceCode';
+import { withSourceCode } from '@/stories/utils';
 import { Base } from '@/styles/Base.style';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { Dispatch, SetStateAction } from 'react';

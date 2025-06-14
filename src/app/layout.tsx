@@ -1,5 +1,5 @@
 import { ThemeProvider } from '@/components/atoms';
-import { PROJECT } from '@/constants';
+import { Project } from '@/constants';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 
@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: PROJECT.NAME,
-	description: PROJECT.DESCRIPTION
+	title: Project.NAME,
+	description: Project.DESCRIPTION
 };
 
 export default function RootLayout({

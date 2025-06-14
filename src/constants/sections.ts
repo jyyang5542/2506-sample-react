@@ -1,5 +1,5 @@
-export const SECTION = {
-	DEFAULT: '/',
-	MAIN: '/Main',
-	CATEGORY: '/Category'
-} as const;
+export enum Section {
+	DEFAULT = '/',
+	MAIN = '/Main',
+	CATEGORY = '/Category'
+}

@@ -3,7 +3,7 @@
 import { Base, hideScrollBars } from '@/styles/Base.style';
 import { darkTheme, lightTheme } from '@/styles/theme';
 import { TTheme } from '@/types';
-import hexToRgba from '@/utils/hexToRgba';
+import { hexToRgba } from '@/utils';
 import styled, { css } from 'styled-components';
 import type { TTabVariant } from './tabsType';
 

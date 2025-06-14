@@ -2,7 +2,7 @@
 
 import { COLORS } from '@/constants/colors';
 import type { TTheme } from '@/types';
-import hexToRgba from '@/utils/hexToRgba';
+import { hexToRgba } from '@/utils';
 import { createGlobalStyle, css } from 'styled-components';
 import { darkTheme, lightTheme } from './theme';
 

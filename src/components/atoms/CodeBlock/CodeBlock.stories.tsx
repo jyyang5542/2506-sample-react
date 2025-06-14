@@ -2,7 +2,7 @@ import { CodeBlock, CodeLine } from '@/components/atoms';
 import { LANGUAGES } from '@/constants/syntaxHighlighter';
 import { Description } from '@/stories/components';
 import type { IDescription } from '@/stories/types';
-import withSourceCode from '@/stories/utils/withSourceCode';
+import { withSourceCode } from '@/stories/utils';
 import { Base } from '@/styles/Base.style';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
@@ -83,6 +83,9 @@ export const Language: Story = {
 		language: 'python',
 		children: `def is_even(n):
     return n % 2 == 0
+
+print(is_even(4))  # True
+print(is_even(7))  # False
 `
 	}
 };
