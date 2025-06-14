@@ -1,8 +1,8 @@
 'use client';
 
-import type { ITabBtn, ITabBtnLink, ITabBtnPanel } from '@/components/molecules/Tabs/Tabs.types';
 import { useRef } from 'react';
 import { Style } from './TabBtn.style';
+import type { ITabBtn, ITabBtnLink, ITabBtnPanel } from './TabBtn.types';
 
 type Props = (ITabBtnLink | ITabBtnPanel) & ITabBtn;
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { Base } from '@/styles/Base.style';
+import { Base } from '@/styles/Base/Base.style';
 import { darkTheme, lightTheme } from '@/styles/theme';
 import { TTheme } from '@/types';
 import { hexToRgba } from '@/utils';

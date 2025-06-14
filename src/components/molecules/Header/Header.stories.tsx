@@ -1,7 +1,7 @@
 import { Description } from '@/stories/components';
 import type { IDescription } from '@/stories/components/Description/Description.types';
 import { withSourceCode } from '@/stories/utils';
-import { Base } from '@/styles/Base.style';
+import { Base } from '@/styles/Base/Base.style';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import Header from './Header';
 

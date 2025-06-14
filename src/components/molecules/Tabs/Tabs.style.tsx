@@ -1,6 +1,6 @@
 'use client';
 
-import { Base, hideScrollBars } from '@/styles/Base.style';
+import { Base, hideScrollBars } from '@/styles/Base/Base.style';
 import { darkTheme, lightTheme } from '@/styles/theme';
 import { TTheme } from '@/types';
 import { hexToRgba } from '@/utils';

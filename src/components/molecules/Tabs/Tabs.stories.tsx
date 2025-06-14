@@ -1,12 +1,12 @@
+import type { ITabBtnLink, ITabBtnPanel } from '@/components/atoms/TabBtn/TabBtn.types';
 import { ARG_TYPES } from '@/constants/storybook';
 import { Description, Required } from '@/stories/components';
 import type { IDescription } from '@/stories/components/Description/Description.types';
 import { withSourceCode } from '@/stories/utils';
-import { Base } from '@/styles/Base.style';
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { Dispatch, SetStateAction } from 'react';
+import { Base } from '@/styles/Base/Base.style';
+import type { Meta } from '@storybook/nextjs-vite';
+import { useState } from 'react';
 import Tabs from './Tabs';
-import type { ITabBtnLink, ITabBtnPanel } from './Tabs.types';
 
 const icMypage = 'https://cdn-icons-png.flaticon.com/512/1144/1144760.png';
 const icLocation = 'https://cdn-icons-png.flaticon.com/512/535/535239.png';
@@ -37,8 +37,6 @@ const panelData = COMMON_DATA.map(item => ({
 	onClick: () => console.log(`${item.label} 클릭`)
 })) as ITabBtnPanel[];
 
-const noop: Dispatch<SetStateAction<number>> = () => {};
-
 const meta = {
 	title: 'Molecules/Tabs',
 	component: Tabs,
@@ -62,12 +60,7 @@ const meta = {
 		},
 		...ARG_TYPES.SPACING
 	},
-	args: {
-		data: panelData,
-		type: 'panel',
-		activeIndex: 0,
-		setActiveIndex: noop
-	}
+	args: {}
 } satisfies Meta<typeof Tabs>;
 
 export default meta;
@@ -86,33 +79,42 @@ export const Docs = () => {
 		</Base.Box>
 	);
 };
-Docs.parameters = withSourceCode(`<Tabs data={panelData} activeIndex={0} />`);
+Docs.parameters = withSourceCode(`<Tabs data={panelData} type='panel' activeIndex={activeIndex} setActiveIndex={setActiveIndex} />`);
 
-export const Default: StoryObj<typeof meta> = {
-	args: {}
+export const Default = () => {
+	const [activeIndex, setActiveIndex] = useState<number>(0);
+	return <Tabs data={panelData} type='panel' activeIndex={activeIndex} setActiveIndex={setActiveIndex} />;
 };
+Default.parameters = withSourceCode(`<Tabs data={panelData} type='panel' activeIndex={activeIndex} setActiveIndex={setActiveIndex} />`);
 
-export const TypeLink: StoryObj<typeof meta> = {
-	args: {
-		data: COMMON_DATA as ITabBtnLink[],
-		activeIndex: 3
-	}
+export const TypeLink = () => {
+	const [activeIndex, setActiveIndex] = useState<number>(3);
+	return <Tabs data={COMMON_DATA as ITabBtnLink[]} type='link' activeIndex={activeIndex} setActiveIndex={setActiveIndex} />;
 };
+TypeLink.parameters = withSourceCode(
+	`<Tabs data={COMMON_DATA as ITabBtnLink[]} type='link' activeIndex={activeIndex} setActiveIndex={setActiveIndex} />`
+);
 
-export const VariantRound: StoryObj<typeof meta> = {
-	args: {
-		variant: 'round'
-	}
+export const VariantRound = () => {
+	const [activeIndex, setActiveIndex] = useState<number>(0);
+	return <Tabs data={panelData} type='panel' variant='round' activeIndex={activeIndex} setActiveIndex={setActiveIndex} />;
 };
+VariantRound.parameters = withSourceCode(
+	`<Tabs data={panelData} type='panel' variant="round" activeIndex={activeIndex} setActiveIndex={setActiveIndex} />`
+);
 
-export const VariantBorderTop: StoryObj<typeof meta> = {
-	args: {
-		variant: 'border-top'
-	}
+export const VariantBorderTop = () => {
+	const [activeIndex, setActiveIndex] = useState<number>(0);
+	return <Tabs data={panelData} type='panel' variant='border-top' activeIndex={activeIndex} setActiveIndex={setActiveIndex} />;
 };
+VariantBorderTop.parameters = withSourceCode(
+	`<Tabs data={panelData} type='panel' variant="border-top" activeIndex={activeIndex} setActiveIndex={setActiveIndex} />`
+);
 
-export const VariantBorderBottom: StoryObj<typeof meta> = {
-	args: {
-		variant: 'border-bottom'
-	}
+export const VariantBorderBottom = () => {
+	const [activeIndex, setActiveIndex] = useState<number>(0);
+	return <Tabs data={panelData} type='panel' variant='border-bottom' activeIndex={activeIndex} setActiveIndex={setActiveIndex} />;
 };
+VariantBorderBottom.parameters = withSourceCode(
+	`<Tabs data={panelData} type='panel' variant="border-bottom" activeIndex={activeIndex} setActiveIndex={setActiveIndex} />`
+);

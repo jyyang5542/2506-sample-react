@@ -1,4 +1,4 @@
-// import { Base } from '@/styles/Base.style';
+// import { Base } from '@/styles/Base/Base.style';
 // import { Style } from './Accordion.style';
 
 export interface IAccordion {

@@ -3,7 +3,7 @@
 import { CodeLine } from '@/components/atoms';
 import { GUIDE_LIST } from '@/constants/guideList';
 import useThemeStore from '@/stores/themeStore';
-import { Base, PADDING_X } from '@/styles/Base.style';
+import { Base, PADDING_X } from '@/styles/Base/Base.style';
 import Link from 'next/link';
 import { Style } from './Guide.style';
 

@@ -1,14 +1,10 @@
-// import { Base } from '@/styles/Base.style';
+// import { Base } from '@/styles/Base/Base.style';
 import { Style } from './AccordionList.style';
 
-interface Props {
-	
-}
+interface Props {}
 
 const AccordionList = ({}: Props) => {
-	return (
-		<Style.Wrap>AccordionList</Style.Wrap>
-	);
-}
+	return <Style.Wrap>AccordionList</Style.Wrap>;
+};
 
 export default AccordionList;

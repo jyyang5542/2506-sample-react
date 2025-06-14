@@ -1,7 +1,7 @@
 'use client';
 
 import useThemeStore from '@/stores/themeStore';
-import { Base } from '@/styles/Base.style';
+import { Base } from '@/styles/Base/Base.style';
 
 interface Props {}
 

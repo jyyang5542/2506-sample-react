@@ -2,13 +2,13 @@ import { CodeLine } from '@/components/atoms';
 import { ARG_TYPES } from '@/constants/storybook';
 import { Description } from '@/stories/components';
 import type { IDescription } from '@/stories/components/Description/Description.types';
-import { Base } from '@/styles/Base.style';
+import { Base } from '@/styles/Base/Base.style';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import withSourceCode from './utils/withSourceCode';
+import withSourceCode from '../../stories/utils/withSourceCode';
 
 const descProps: IDescription = {
 	componentName: 'Base.Box',
-	importData: `import { Base } from '@/styles/Base.style';`,
+	importData: `import { Base } from '@/styles/Base/Base.style';`,
 	code: `/* 기본 div 태그 상태 */
 <Base.Box>
   // 

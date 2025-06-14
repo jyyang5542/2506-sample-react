@@ -3,7 +3,7 @@ import { LANGUAGES } from '@/constants/syntaxHighlighter';
 import { Description } from '@/stories/components';
 import type { IDescription } from '@/stories/components/Description/Description.types';
 import { withSourceCode } from '@/stories/utils';
-import { Base } from '@/styles/Base.style';
+import { Base } from '@/styles/Base/Base.style';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 const COMPONENT_CODE = `import { Style } from './컴포넌트명.style';
