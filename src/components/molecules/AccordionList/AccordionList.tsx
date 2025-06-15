@@ -1,17 +1,28 @@
 import { Accordion } from '@/components/atoms';
 import { useEffect, useState } from 'react';
 import { Style } from './AccordionList.style';
-import type { IAccordionListItem } from './AccordionList.types';
+import type { IAccordionList } from './AccordionList.types';
 
-interface Props {
-	data: IAccordionListItem[];
-	gap?: number;
-	collapseOthers?: boolean;
-	fontSize?: { title?: number; contents?: number };
-	activeIndex?: number | null;
-}
-
-const AccordionList = ({ data, gap = 8, collapseOthers = false, fontSize, activeIndex = null }: Props) => {
+const AccordionList = ({
+	data,
+	gap = 8,
+	collapseOthers = false,
+	fontSize,
+	activeIndex = null,
+	px,
+	pl,
+	pr,
+	py,
+	pt,
+	pb,
+	mx,
+	ml,
+	mr,
+	my,
+	mt,
+	mb
+}: IAccordionList) => {
+	const spacingProps = { px, pl, pr, py, pt, pb, mx, ml, mr, my, mt, mb };
 	const [openedList, setOpenedList] = useState<boolean[]>(data.map((_, i) => activeIndex !== null && i === activeIndex));
 
 	useEffect(() => {
@@ -30,7 +41,7 @@ const AccordionList = ({ data, gap = 8, collapseOthers = false, fontSize, active
 	};
 
 	return (
-		<Style.Wrap gap={gap}>
+		<Style.Wrap gap={gap} {...spacingProps}>
 			{data.map((item, index) => (
 				<Accordion
 					key={`accordion-item-${index}-${item.title}`}

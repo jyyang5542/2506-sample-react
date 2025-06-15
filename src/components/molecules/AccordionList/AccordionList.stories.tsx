@@ -1,3 +1,4 @@
+import { argTypes } from '@/constants/storybook';
 import { Description } from '@/stories/components';
 import type { IDescription } from '@/stories/components/Description/Description.types';
 import withSourceCode from '@/stories/utils/withSourceCode';
@@ -21,7 +22,8 @@ const meta = {
 		gap: { description: '', control: 'number' },
 		collapseOthers: { description: '', control: 'boolean' },
 		fontSize: { description: '' },
-		activeIndex: { description: '', control: 'number' }
+		activeIndex: { description: '', control: 'number' },
+		...argTypes.SPACING
 	},
 	args: {
 		data: ACCORDION_LIST
