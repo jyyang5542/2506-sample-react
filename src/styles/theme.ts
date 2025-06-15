@@ -1,17 +1,20 @@
-import { DefaultTheme } from "styled-components";
+import { Colors } from '@/constants/colors';
+import type { DefaultTheme } from 'styled-components';
 
 export const lightTheme: DefaultTheme = {
-  colors: {
-    primary: "#0070f3",
-    background: "#ffffff",
-    text: "#000000",
-  },
+	theme: 'light',
+	background: Colors.white,
+	text: '#000000',
+	colors: {
+		primary: '#0070f3'
+	}
 };
 
 export const darkTheme: DefaultTheme = {
-  colors: {
-    primary: "#79b8ff",
-    background: "#1a1a1a",
-    text: "#ffffff",
-  },
+	theme: 'dark',
+	background: Colors.gray_1,
+	text: Colors.white,
+	colors: {
+		primary: '#79b8ff'
+	}
 };

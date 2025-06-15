@@ -1,11 +1,11 @@
-import "styled-components";
+import type { TTheme } from '@/types/common.types';
+import 'styled-components';
 
-declare module "styled-components" {
-  export interface DefaultTheme {
-    colors: {
-      primary: string;
-      background: string;
-      text: string;
-    };
-  }
+declare module 'styled-components' {
+	export interface DefaultTheme {
+		theme: TTheme;
+		colors: {
+			primary: string;
+		};
+	}
 }
