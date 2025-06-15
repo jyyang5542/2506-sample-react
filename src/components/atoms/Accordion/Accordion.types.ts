@@ -5,6 +5,7 @@ interface Props {
 	opened?: boolean;
 	title?: string;
 	contents?: TChildren;
+	fontSize?: { title?: number; contents?: number };
 }
 
 export type IAccordion = Props & ISpacing;

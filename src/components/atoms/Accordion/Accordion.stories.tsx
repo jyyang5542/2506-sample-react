@@ -53,3 +53,12 @@ export const Opened: Story = {
 		opened: true
 	}
 };
+
+export const FontSize: Story = {
+	args: {
+		fontSize: {
+			title: 16,
+			contents: 16
+		}
+	}
+};
