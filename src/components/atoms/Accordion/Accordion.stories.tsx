@@ -1,3 +1,4 @@
+import { argTypes } from '@/constants/storybook';
 import { Description } from '@/stories/components';
 import type { IDescription } from '@/stories/components/Description/Description.types';
 import withSourceCode from '@/stories/utils/withSourceCode';
@@ -12,8 +13,11 @@ const meta = {
 	tags: ['autodocs'],
 	argTypes: {
 		opened: { description: '최초 랜더링 시 콘텐츠 노출 여부', control: 'boolean' },
-		title: { control: false },
-		contents: { control: false }
+		title: { description: '', control: false },
+		contents: { description: '', control: false },
+		fontSize: { description: '' },
+		onToggle: { description: '', control: false },
+		...argTypes.SPACING
 	},
 	args: {
 		title: '아코디언 제목입니다.',

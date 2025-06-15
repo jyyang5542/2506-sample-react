@@ -1,11 +1,13 @@
 import { ISpacing } from '@/styles/Base/Base.types';
 import { TChildren } from '@/types/common.types';
 
-interface Props {
+export interface IAccordion extends ISpacing {
 	opened?: boolean;
 	title?: string;
 	contents?: TChildren;
-	fontSize?: { title?: number; contents?: number };
+	fontSize?: {
+		title?: number;
+		contents?: number;
+	};
+	onToggle?: () => void;
 }
-
-export type IAccordion = Props & ISpacing;

@@ -36,6 +36,7 @@ export const Style = {
 		padding: 8px 16px;
 		min-height: 30px;
 		font-size: ${({ fontSize = DEFAULT_FONT_SIZE }) => fontSize}px;
+		background-color: ${({ theme }) => hexToRgba(theme.text, 0.05)};
 		border-top: 1px solid ${({ theme }) => hexToRgba(theme.text, 0.15)};
 	`
 };
