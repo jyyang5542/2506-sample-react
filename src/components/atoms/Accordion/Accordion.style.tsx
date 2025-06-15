@@ -16,12 +16,22 @@ export const Style = {
 		padding: 8px 16px;
 		cursor: pointer;
 		line-height: 1.4;
+		gap: 16px;
 
-		${({ opened }) => (opened ? css`` : css``)}
+		span {
+			flex: 1;
+		}
+
+		img {
+			transform: rotate(${({ opened }) => (opened ? css`180deg` : css`0deg`)});
+		}
 	`,
 
 	Contents: styled.div`
+		display: flex;
+		align-items: center;
 		padding: 8px 16px;
+		min-height: 30px;
 		border-top: 1px solid ${({ theme }) => hexToRgba(theme.text, 0.15)};
 	`
 };
