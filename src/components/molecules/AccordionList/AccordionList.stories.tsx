@@ -35,7 +35,6 @@ type Story = StoryObj<typeof meta>;
 const DESCRIPTION_PROPS: IDescription = {
 	name: 'AccordionList',
 	from: `import { AccordionList } from '@/components/molecules'`,
-	// from: `import AccordionList from '절대경로'`,
 	code: `<AccordionList data={ACCORDION_LIST} />`
 };
 
