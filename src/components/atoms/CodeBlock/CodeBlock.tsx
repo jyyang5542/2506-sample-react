@@ -1,7 +1,7 @@
 'use client';
 
 import { Colors } from '@/constants/colors';
-import type { TSyntaxHighlighterLanguage } from '@/constants/syntaxHighlighter';
+import type { TSyntaxHighlighterLanguage } from '@/stories/constants/syntaxHighlighter';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { useTheme } from 'styled-components';

@@ -1,5 +1,5 @@
-import { Section } from '@/constants/sections';
-import { TChildren } from '@/types';
+import { SECTION } from '@/constants/sections';
+import { TChildren } from '@/types/common.types';
 
 type TDepth = [string] | [string, string] | [string, string, string] | [string, string, string, string] | [string, string, string, string, string];
 
@@ -30,17 +30,17 @@ export const GUIDE_LIST: IGuideData[] = [
 	{
 		category: '예시',
 		list: [
-			{ pageName: '{페이지명}', dir: `${Section.CATEGORY}/{페이지명}`, depth: [''], date: 'yy-mm-dd', memo: (<Memo></Memo>) },
-			{ pageName: '{페이지명}', dir: `${Section.CATEGORY}/{페이지명}`, depth: [''], date: 'yy-mm-dd', memo: (<Memo><Update text='[yy-mm-dd] 업데이트' /></Memo>) },
-			{ pageName: '{페이지명}', dir: `${Section.CATEGORY}/{페이지명}`, depth: [''], date: 'yy-mm-dd', memo: (<Memo><Update text='[yy-mm-dd] 업데이트' color="red" /></Memo>) },
-			{ pageName: '{페이지명}', dir: `${Section.CATEGORY}/{페이지명}`, depth: [''], date: 'yy-mm-dd', memo: (<Memo><Update text='[yy-mm-dd] 업데이트' color="blue" /></Memo>) },
+			{ pageName: '{페이지명}', dir: `${SECTION.CATEGORY}/{페이지명}`, depth: [''], date: 'yy-mm-dd', memo: (<Memo></Memo>) },
+			{ pageName: '{페이지명}', dir: `${SECTION.CATEGORY}/{페이지명}`, depth: [''], date: 'yy-mm-dd', memo: (<Memo><Update text='[yy-mm-dd] 업데이트' /></Memo>) },
+			{ pageName: '{페이지명}', dir: `${SECTION.CATEGORY}/{페이지명}`, depth: [''], date: 'yy-mm-dd', memo: (<Memo><Update text='[yy-mm-dd] 업데이트' color="red" /></Memo>) },
+			{ pageName: '{페이지명}', dir: `${SECTION.CATEGORY}/{페이지명}`, depth: [''], date: 'yy-mm-dd', memo: (<Memo><Update text='[yy-mm-dd] 업데이트' color="blue" /></Memo>) },
 		]
 	},
 	{
 		category: '메인',
 		list: [
-			{ pageName: 'Home', dir: `${Section.DEFAULT}`, depth: ['홈'], date: '', memo: (<Memo></Memo>) },
-			{ pageName: 'Main', dir: `${Section.MAIN}`, depth: ['메인'], date: '', memo: (<Memo></Memo>) },
+			{ pageName: 'Home', dir: `${SECTION.DEFAULT}`, depth: ['홈'], date: '', memo: (<Memo></Memo>) },
+			{ pageName: 'Main', dir: `${SECTION.MAIN}`, depth: ['메인'], date: '', memo: (<Memo></Memo>) },
 		]
 	},
 ] as const;

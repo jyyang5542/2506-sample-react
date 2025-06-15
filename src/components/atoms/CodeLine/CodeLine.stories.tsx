@@ -1,6 +1,6 @@
-import { Languages } from '@/constants/syntaxHighlighter';
 import { Description } from '@/stories/components';
 import type { IDescription } from '@/stories/components/Description/Description.types';
+import { Languages } from '@/stories/constants/syntaxHighlighter';
 import { withSourceCode } from '@/stories/utils';
 import { Base } from '@/styles/Base/Base.style';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
