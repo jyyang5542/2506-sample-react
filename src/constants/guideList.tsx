@@ -1,4 +1,4 @@
-import { SECTION } from '@/constants/sections';
+import { SECTION } from '@/constants/routes';
 import { TChildren } from '@/types/common.types';
 
 type TDepth = [string] | [string, string] | [string, string, string] | [string, string, string, string] | [string, string, string, string, string];
