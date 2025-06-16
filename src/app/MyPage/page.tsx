@@ -1,9 +1,9 @@
-import Guide from '@/app/Guide/Guide';
+import MyPage from '@/app/MyPage/MyPage';
 
 interface Props {}
 
 const Page = ({}: Props) => {
-	return <Guide />;
+	return <MyPage />;
 };
 
 export default Page;

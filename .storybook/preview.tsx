@@ -1,5 +1,4 @@
 import type { Preview } from '@storybook/nextjs-vite';
-import React from 'react';
 import ThemeProvider from '../src/app/theme-provider';
 
 const preview: Preview = {
@@ -12,7 +11,7 @@ const preview: Preview = {
 		},
 
 		options: {
-			storySort: { order: ['Base', 'Atoms', 'Molecules', 'Organisms', 'Templates', '*'] }
+			storySort: { order: ['Base', 'Atoms', 'Molecules', ['Header', 'Footer', '*'], 'Organisms', 'Templates', ['MainPage', 'SubPage'], '*'] }
 		},
 
 		a11y: {

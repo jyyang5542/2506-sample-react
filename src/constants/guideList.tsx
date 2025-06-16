@@ -43,4 +43,10 @@ export const GUIDE_LIST: IGuideData[] = [
 			{ pageName: 'Main', dir: `${SECTION.MAIN}`, depth: ['메인'], date: '', memo: (<Memo></Memo>) },
 		]
 	},
+	{
+		category: '마이 페이지',
+		list: [
+			{ pageName: 'MyPage', dir: `${SECTION.MY_PAGE}`, depth: ['마이 페이지'], date: '', memo: (<Memo></Memo>) },
+		]
+	},
 ] as const;

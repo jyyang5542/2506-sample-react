@@ -1,5 +1,6 @@
 export const SECTION = {
 	DEFAULT: '/',
 	MAIN: '/Main',
-	CATEGORY: '/Category'
+	CATEGORY: '/Category',
+	MY_PAGE: '/MyPage'
 } as const;

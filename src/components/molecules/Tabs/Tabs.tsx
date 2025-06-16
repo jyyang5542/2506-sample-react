@@ -30,11 +30,7 @@ const Tabs = ({
 		setActiveIndex?.(currentActiveIndex);
 	}, [currentActiveIndex, setActiveIndex]);
 
-	const commonProps = {
-		type,
-		variant,
-		activeIndex: currentActiveIndex,
-		setActiveIndex: setCurrentActiveIndex,
+	const spacingProps = {
 		px,
 		pl,
 		pr,
@@ -49,8 +45,15 @@ const Tabs = ({
 		mb
 	};
 
+	const commonProps = {
+		type,
+		variant,
+		activeIndex: currentActiveIndex,
+		setActiveIndex: setCurrentActiveIndex
+	};
+
 	return (
-		<Style.Wrap>
+		<Style.Wrap {...spacingProps}>
 			<Style.Tab variant={variant}>
 				{data.map((item, idx) => {
 					const itemProps = {

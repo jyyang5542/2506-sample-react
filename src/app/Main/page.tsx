@@ -1,9 +1,9 @@
-import Main from "@/components/templates/Main/Main";
+import Main from '@/app/Main/Main';
 
 interface Props {}
 
 const Page = ({}: Props) => {
-  return <Main />;
+	return <Main />;
 };
 
 export default Page;
