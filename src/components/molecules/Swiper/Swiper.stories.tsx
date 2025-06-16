@@ -23,10 +23,14 @@ type Story = StoryObj<typeof meta>;
 
 const DESCRIPTION_PROPS: IDescription = {
 	name: 'Swiper',
-	from: `import { Swiper } from '절대경로'`,
-	// from: `import Swiper from '절대경로'`,
-	code: `<Swiper />`,
-	description: `설명을_입력하세요`
+	from: `import { Swiper } from '@/components/molecules'`,
+	code: `<Swiper
+ slides={[
+   <>Slide 1</>,
+   <>Slide 2</>,
+   <>Slide 3</>
+ ]}
+/>`
 };
 
 export const Docs: Story = {

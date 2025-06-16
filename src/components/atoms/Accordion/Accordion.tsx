@@ -1,5 +1,6 @@
 'use client';
 
+import { Icons } from '@/mocks/icons.mock';
 import Image from 'next/image';
 import { Style } from './Accordion.style';
 import type { IAccordion } from './Accordion.types';
@@ -12,7 +13,7 @@ const Accordion = ({ opened = false, title, contents, fontSize, onToggle, px, pl
 			<Style.Title onClick={onToggle} opened={opened} fontSize={fontSize?.title}>
 				<span>{title}</span>
 				<Image
-					src='https://www.iconpacks.net/icons/2/free-arrow-down-icon-3101-thumb.png'
+					src={Icons.ARROW_DOWN}
 					alt='arrow'
 					width={16}
 					height={16}

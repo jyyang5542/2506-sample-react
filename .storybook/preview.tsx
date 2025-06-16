@@ -11,7 +11,9 @@ const preview: Preview = {
 		},
 
 		options: {
-			storySort: { order: ['Base', 'Atoms', 'Molecules', ['Header', 'Footer', '*'], 'Organisms', 'Templates', ['MainPage', 'SubPage'], '*'] }
+			storySort: {
+				order: ['Base', 'Atoms', 'Molecules', ['Header', 'SubHeader', 'Footer', '*'], 'Organisms', 'Templates', ['MainPage', 'SubPage'], '*']
+			}
 		},
 
 		a11y: {

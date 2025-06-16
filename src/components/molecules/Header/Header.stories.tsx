@@ -24,10 +24,8 @@ type Story = StoryObj<typeof meta>;
 
 const DESCRIPTION_PROPS: IDescription = {
 	name: 'Header',
-	from: `import { Header } from '절대경로'`,
-	// from: `import Header from '절대경로'`,
-	code: `<Header />`,
-	description: `설명을_입력하세요`
+	from: `import { Header } from '@/components/molecules'`,
+	code: `<Header />`
 };
 
 export const Docs: Story = {

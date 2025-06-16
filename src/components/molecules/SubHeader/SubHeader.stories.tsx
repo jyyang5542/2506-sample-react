@@ -3,29 +3,30 @@ import type { IDescription } from '@/stories/components/Description/Description.
 import withSourceCode from '@/stories/utils/withSourceCode';
 import { Base } from '@/styles/Base/Base.style';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import Footer from './Footer';
+import SubHeader from './SubHeader';
 
 const meta = {
-	title: 'Molecules/Footer',
-	component: Footer,
+	title: 'Molecules/SubHeader',
+	component: SubHeader,
 	parameters: {},
 	tags: ['autodocs'],
 	argTypes: {
 		//
 	},
 	args: {
-		//
+		title: '페이지명'
 	}
-} satisfies Meta<typeof Footer>;
+} satisfies Meta<typeof SubHeader>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 const DESCRIPTION_PROPS: IDescription = {
-	name: 'Footer',
-	from: `import { Footer } from '@/components/molecules'`,
-	code: `<Footer />`
+	name: 'SubHeader',
+	from: `import { SubHeader } from '@/components/molecules'`,
+	// from: `import SubHeader from '절대경로'`,
+	code: `<SubHeader />`
 };
 
 export const Docs: Story = {
@@ -42,4 +43,12 @@ Docs.parameters = withSourceCode(DESCRIPTION_PROPS.code);
 
 export const Default: Story = {
 	args: {}
+};
+
+export const NoBack: Story = {
+	args: { hasBack: false }
+};
+
+export const WithMenu: Story = {
+	args: { hasMenu: true }
 };
