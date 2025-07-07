@@ -1,58 +1,53 @@
 export interface IPageModule {
 	data: {
-		common: IDCommon;
-		navigation: IDNavigation;
-		tickingFlags: IDTickingFlags;
+		common: {
+			get isDev(): boolean;
+			root: string;
+			prefix: string;
+		};
+
+		navigation: {
+			headerHeight: number;
+			navigationHeight: number;
+			currentIndex: number;
+		};
+
+		tickingFlags: {
+			behaviorScroll: boolean;
+			sectionScroll: boolean;
+		};
 	};
 
 	methods: {
-		common: IMCommon;
-		visual: IMVisual;
-		navigation: IMNavigation;
+		common: {
+			animateOnScroll: () => void;
+			handleImageError: () => void;
+			makeClass: ({ block, element, modifier }: TBem) => string;
+		};
+
+		visual: {
+			handleBehaviorOnScroll: () => void;
+		};
+
+		navigation: {
+			setNavigationIndex: () => void;
+			activateButton: ($targetEl: TTargetEl) => void;
+			observeSectionInView: () => void;
+			anchorTo: ($anchorId: TAnchorId) => void;
+		};
 	};
 
 	onMounted: () => void;
+
 	init: () => void;
 }
 
-interface IDCommon {
-	get isDev(): boolean;
-	currentUrl: string;
-	root: string;
-	prefix: string;
-}
-
-interface IDNavigation {
-	headerHeight: number;
-	navigationHeight: number;
-	currentIndex: number;
-	$navigation: HTMLElement | null;
-}
-
-interface IDTickingFlags {
-	behaviorScroll: boolean;
-	sectionScroll: boolean;
-}
-
-export interface IBem {
+export type TBem = {
 	block: string;
 	element: string;
 	modifier: string;
-}
+};
 
-interface IMCommon {
-	animateOnScroll: () => void;
-	handleImageError: () => void;
-	makeClass: ({ block, element, modifier }: IBem) => string;
-}
+export type TTargetEl = HTMLElement;
 
-interface IMVisual {
-	handleBehaviorOnScroll: () => void;
-}
-
-interface IMNavigation {
-	setNavigationIndex: () => void;
-	activateButton: ($targetEl: HTMLElement) => void;
-	observeSectionInView: () => void;
-	anchorTo: ($anchorId: string) => void;
-}
+export type TAnchorId = string;

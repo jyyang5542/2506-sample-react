@@ -1,6 +1,6 @@
 'use strict';
 
-import type { IBem, IPageModule } from './pageModule.types';
+import type { IPageModule, TAnchorId, TBem, TTargetEl } from './pageModule.types';
 
 export const pageModule: IPageModule = {
 	data: {
@@ -8,7 +8,6 @@ export const pageModule: IPageModule = {
 			get isDev(): boolean {
 				return window.location.hostname === 'localhost';
 			},
-			currentUrl: window.location.href,
 			root: '.ssg-voyage',
 			prefix: 'ssg-voyage'
 		},
@@ -16,8 +15,7 @@ export const pageModule: IPageModule = {
 		navigation: {
 			headerHeight: 50,
 			navigationHeight: 50,
-			currentIndex: 0,
-			$navigation: document.querySelector('.ssg-voyage-navigation')
+			currentIndex: 0
 		},
 
 		tickingFlags: {
@@ -67,7 +65,7 @@ export const pageModule: IPageModule = {
 				});
 			},
 
-			makeClass({ block, element, modifier }: IBem): string {
+			makeClass({ block, element, modifier }: TBem): string {
 				return `${block}__${element}${modifier ? `--${modifier}` : ''}`;
 			}
 		},
@@ -116,7 +114,7 @@ export const pageModule: IPageModule = {
 				});
 			},
 
-			activateButton($targetEl: HTMLElement) {
+			activateButton($targetEl: TTargetEl) {
 				const { root, prefix } = pageModule.data.common;
 				const $btns = document.querySelectorAll(`${root}-navigation__btn`);
 				const activeClass = `${prefix}-navigation__btn--active`;
@@ -184,7 +182,7 @@ export const pageModule: IPageModule = {
 				window.addEventListener('scroll', throttledScroll);
 			},
 
-			anchorTo($anchorId: string) {
+			anchorTo($anchorId: TAnchorId) {
 				const { root, isDev } = pageModule.data.common;
 				const { headerHeight, navigationHeight } = pageModule.data.navigation;
 				const $target = document.querySelector($anchorId);
@@ -215,11 +213,12 @@ export const pageModule: IPageModule = {
 	},
 
 	init() {
+		const { onMounted } = pageModule;
 		if (document.readyState === 'complete' || document.readyState === 'interactive') {
-			pageModule.onMounted();
+			onMounted();
 		} else {
 			document.addEventListener('DOMContentLoaded', () => {
-				pageModule.onMounted();
+				onMounted();
 			});
 		}
 	}
