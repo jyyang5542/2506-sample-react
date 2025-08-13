@@ -1,34 +1,47 @@
-'use client';
-
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface Props {
-	offset?: number;
 	maxBlur?: number;
 }
 
-/**
- * 스크롤 시 blur 효과를 적용하는 훅
- * 사용 예시:
- * const ref = useBlurOnScroll({ maxBlur: 20, offset: 100 });
- * <div ref={ref}>내용</div>
- */
-const useBlurOnScroll = ({ offset = 0, maxBlur = 30 }: Props) => {
-	const elementRef = useRef<HTMLElement | null>(null);
+const useBlurOnScroll = <T extends HTMLElement = HTMLDivElement>({ maxBlur = 30 }: Props) => {
+	const elementRef = useRef<T | null>(null);
+	const [isVisible, setIsVisible] = useState(false);
 
 	useEffect(() => {
 		const element = elementRef.current;
 		if (!element) return;
 
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				setIsVisible(entry.isIntersecting);
+			},
+			{ threshold: 0 }
+		);
+		observer.observe(element);
+
 		let ticking = false;
 
 		const updateBlur = () => {
-			const scrollY = window.scrollY - offset;
-			const windowHeight = window.innerHeight;
-			const scrollRatio = Math.min(Math.max(scrollY / windowHeight, 0), 1);
-			const blurValue = scrollRatio * maxBlur;
+			if (!element) return;
 
-			element.style.backdropFilter = `blur(${blurValue}px)`;
+			if (!isVisible) {
+				element.style.backdropFilter = `blur(0px)`;
+				ticking = false;
+				return;
+			}
+
+			const rect = element.getBoundingClientRect();
+
+			if (rect.top >= 0) {
+				element.style.backdropFilter = `blur(0px)`;
+			} else {
+				const blurRatio = Math.min(Math.abs(rect.top) / window.innerHeight, 1);
+				const blurValue = blurRatio * maxBlur;
+
+				element.style.backdropFilter = `blur(${blurValue}px)`;
+			}
+
 			ticking = false;
 		};
 
@@ -43,9 +56,10 @@ const useBlurOnScroll = ({ offset = 0, maxBlur = 30 }: Props) => {
 		updateBlur();
 
 		return () => {
+			observer.disconnect();
 			window.removeEventListener('scroll', onScroll);
 		};
-	}, [offset, maxBlur]);
+	}, [isVisible, maxBlur]);
 
 	return elementRef;
 };
