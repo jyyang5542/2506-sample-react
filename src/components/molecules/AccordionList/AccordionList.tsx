@@ -1,44 +1,39 @@
 import { Accordion } from '@/components/atoms';
+import type { ISpacing } from '@/types/common.types';
 import { useEffect, useState } from 'react';
 import { Style } from './AccordionList.style';
 import type { IAccordionList } from './AccordionList.types';
 
-const AccordionList = ({
-	data,
-	gap = 8,
-	collapseOthers = false,
-	fontSize,
-	activeIndex = null,
-	px,
-	pl,
-	pr,
-	py,
-	pt,
-	pb,
-	mx,
-	ml,
-	mr,
-	my,
-	mt,
-	mb
-}: IAccordionList) => {
-	const spacingProps = { px, pl, pr, py, pt, pb, mx, ml, mr, my, mt, mb };
-	const [openedList, setOpenedList] = useState<boolean[]>(data.map((_, i) => activeIndex !== null && i === activeIndex));
+type Props = IAccordionList & ISpacing;
 
-	useEffect(() => {
-		setOpenedList(data.map((_, i) => activeIndex !== null && i === activeIndex));
-	}, [activeIndex, data]);
+const AccordionList = ({ data, gap = 8, collapseOthers = false, fontSize, activeIndex = null, ...spacingProps }: Props) => {
+	const [openedIndex, setOpenedIndex] = useState<number | null>(() => (collapseOthers ? activeIndex : null));
+
+	const [openedIndices, setOpenedIndices] = useState<number[]>(() => {
+		return !collapseOthers && activeIndex !== null ? [activeIndex] : [];
+	});
 
 	const handleToggle = (index: number) => {
-		setOpenedList(prev => {
-			if (collapseOthers) {
-				const isAlreadyOpened = prev[index];
-				return prev.map((_, i) => (i === index ? !isAlreadyOpened : false));
-			} else {
-				return prev.map((opened, i) => (i === index ? !opened : opened));
-			}
-		});
+		if (collapseOthers) {
+			setOpenedIndex(prevIndex => (prevIndex === index ? null : index));
+		} else {
+			setOpenedIndices(prevIndices => {
+				if (prevIndices.includes(index)) {
+					return prevIndices.filter(item => item !== index);
+				} else {
+					return [...prevIndices, index];
+				}
+			});
+		}
 	};
+
+	useEffect(() => {
+		if (collapseOthers) {
+			setOpenedIndex(activeIndex);
+		} else {
+			setOpenedIndices(activeIndex !== null ? [activeIndex] : []);
+		}
+	}, [activeIndex, collapseOthers]);
 
 	return (
 		<Style.Wrap $gap={gap} {...spacingProps}>
@@ -47,7 +42,7 @@ const AccordionList = ({
 					key={`accordion-item-${index}-${item.title}`}
 					title={item.title}
 					contents={item.contents}
-					opened={openedList[index]}
+					opened={collapseOthers ? openedIndex === index : openedIndices.includes(index)}
 					onToggle={() => handleToggle(index)}
 					fontSize={fontSize}
 				/>

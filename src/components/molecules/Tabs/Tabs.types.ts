@@ -1,5 +1,5 @@
 import type { ITabBtnLink, ITabBtnPanel } from '@/components/atoms/TabBtn/TabBtn.types';
-import type { ISpacing } from '@/styles/Base/Base.types';
+import type { ISpacing } from '@/types/common.types';
 import { Dispatch, SetStateAction } from 'react';
 
 export type TTabVariant = 'border-top' | 'border-bottom' | 'round';

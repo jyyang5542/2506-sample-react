@@ -1,6 +1,7 @@
 'use client';
 
-import type { ISpacing, ITextProps } from '@/styles/Base/Base.types';
+import type { ITextProps } from '@/styles/Base/Base.types';
+import type { ISpacing } from '@/types/common.types';
 import styled, { css } from 'styled-components';
 
 export const PADDING_X = 18;

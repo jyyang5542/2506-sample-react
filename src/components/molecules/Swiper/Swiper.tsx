@@ -1,4 +1,3 @@
-import type { ISpacing } from '@/styles/Base/Base.types';
 import { forwardRef, useImperativeHandle, useRef, useState, type ForwardedRef } from 'react';
 import type SwiperCore from 'swiper';
 import { Swiper as SwiperReact, SwiperSlide, type SwiperProps } from 'swiper/react';
@@ -29,6 +28,7 @@ import {
 	Zoom
 } from 'swiper/modules';
 
+import type { ISpacing } from '@/types/common.types';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -46,29 +46,9 @@ type Props = {
 
 const Swiper = forwardRef<SwiperCore, Props>(
 	(
-		{
-			slides,
-			options = {},
-			customPagination = false,
-			initialSlide = 0,
-			autoPlayTime = 5,
-			onChangeCallback,
-			px,
-			pl,
-			pr,
-			py,
-			pt,
-			pb,
-			mx,
-			ml,
-			mr,
-			my,
-			mt,
-			mb
-		}: Props,
+		{ slides, options = {}, customPagination = false, initialSlide = 0, autoPlayTime = 5, onChangeCallback, ...spacingProps }: Props,
 		ref: ForwardedRef<SwiperCore>
 	) => {
-		const spacingProps = { px, pl, pr, py, pt, pb, mx, ml, mr, my, mt, mb };
 		const swiperRef = useRef<SwiperCore | null>(null);
 		const prevRef = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
 		const nextRef = useRef<HTMLButtonElement & HTMLAnchorElement>(null);

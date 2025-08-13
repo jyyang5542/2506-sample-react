@@ -5,45 +5,12 @@ import type { ITypeLink, ITypePanel } from './Tabs.types';
 
 type Props = ITypePanel | ITypeLink;
 
-const Tabs = ({
-	data,
-	type = 'panel',
-	variant = 'border-top',
-	activeIndex = 0,
-	setActiveIndex,
-	px,
-	pl,
-	pr,
-	py,
-	pt,
-	pb,
-	mx,
-	ml,
-	mr,
-	my,
-	mt,
-	mb
-}: Props) => {
+const Tabs = ({ data, type = 'panel', variant = 'border-top', activeIndex = 0, setActiveIndex, ...spacingProps }: Props) => {
 	const [currentActiveIndex, setCurrentActiveIndex] = useState<number>(activeIndex);
 
 	useEffect(() => {
 		setActiveIndex?.(currentActiveIndex);
 	}, [currentActiveIndex, setActiveIndex]);
-
-	const spacingProps = {
-		px,
-		pl,
-		pr,
-		py,
-		pt,
-		pb,
-		mx,
-		ml,
-		mr,
-		my,
-		mt,
-		mb
-	};
 
 	const commonProps = {
 		type,

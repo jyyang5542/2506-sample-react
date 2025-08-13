@@ -1,19 +1,5 @@
 export type TSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-
-export interface ISpacing {
-	px?: number;
-	pl?: number;
-	pr?: number;
-	py?: number;
-	pt?: number;
-	pb?: number;
-	mx?: number;
-	ml?: number;
-	mr?: number;
-	my?: number;
-	mt?: number;
-	mb?: number;
-}
+export type { ISpacing } from '@/types/common.types';
 
 export interface ITextProps {
 	color?: string;

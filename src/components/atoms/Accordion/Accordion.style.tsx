@@ -2,7 +2,7 @@
 
 import { Base } from '@/styles/Base/Base.style';
 import { hexToRgba } from '@/utils';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const DEFAULT_FONT_SIZE = 14;
 
@@ -26,7 +26,7 @@ export const Style = {
 		}
 
 		img {
-			transform: rotate(${({ $opened }) => ($opened ? css`180deg` : css`0deg`)});
+			transform: rotate(${({ $opened }) => ($opened ? `180deg` : `0deg`)});
 		}
 	`,
 
