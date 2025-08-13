@@ -3,13 +3,13 @@ import type { IDescription } from '@/stories/components/Description/Description.
 import withSourceCode from '@/stories/utils/withSourceCode';
 import { Base } from '@/styles/Base/Base.style';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import BlurOnScroll from './BlurOnScroll';
+import BlurBgOnScroll from './BlurBgOnScroll';
 
 import MOCK_IMG from '@/assets/mocks/tasting_board.jpg';
 
 const meta = {
-	title: 'Atoms/BlurOnScroll',
-	component: BlurOnScroll,
+	title: 'Atoms/BlurBgOnScroll',
+	component: BlurBgOnScroll,
 	parameters: {},
 	tags: ['autodocs'],
 	argTypes: {
@@ -18,17 +18,17 @@ const meta = {
 	args: {
 		//
 	}
-} satisfies Meta<typeof BlurOnScroll>;
+} satisfies Meta<typeof BlurBgOnScroll>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 const DESCRIPTION_PROPS: IDescription = {
-	name: 'BlurOnScroll',
-	from: `import { BlurOnScroll } from '절대경로'`,
-	// from: `import BlurOnScroll from '절대경로'`,
-	code: `<BlurOnScroll />`,
+	name: 'BlurBgOnScroll',
+	from: `import { BlurBgOnScroll } from '절대경로'`,
+	// from: `import BlurBgOnScroll from '절대경로'`,
+	code: `<BlurBgOnScroll />`,
 	description: `설명을_입력하세요`
 };
 

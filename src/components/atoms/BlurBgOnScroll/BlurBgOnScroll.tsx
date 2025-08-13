@@ -1,6 +1,6 @@
 import { useBlurOnScroll } from '@/hooks';
 import { CSSProperties, ReactNode } from 'react';
-import { Style } from './BlurOnScroll.style';
+import { Style } from './BlurBgOnScroll.style';
 
 interface Props {
 	maxBlur?: number;
@@ -10,7 +10,7 @@ interface Props {
 	children?: string | ReactNode;
 }
 
-const BlurOnScroll = ({ maxBlur, bgImage, bgColor, style, children }: Props) => {
+const BlurBgOnScroll = ({ maxBlur, bgImage, bgColor, style, children }: Props) => {
 	const ref = useBlurOnScroll({ maxBlur: maxBlur });
 	return (
 		<Style.Wrap $bgImage={bgImage} $bgColor={bgColor} style={style}>
@@ -19,4 +19,4 @@ const BlurOnScroll = ({ maxBlur, bgImage, bgColor, style, children }: Props) => 
 	);
 };
 
-export default BlurOnScroll;
+export default BlurBgOnScroll;
