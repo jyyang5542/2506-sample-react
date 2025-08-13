@@ -30,6 +30,7 @@ import {
 
 import type { ISpacing } from '@/types/common.types';
 import 'swiper/css';
+import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
@@ -50,11 +51,12 @@ const Swiper = forwardRef<SwiperCore, Props>(
 		ref: ForwardedRef<SwiperCore>
 	) => {
 		const swiperRef = useRef<SwiperCore | null>(null);
-		const prevRef = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
-		const nextRef = useRef<HTMLButtonElement & HTMLAnchorElement>(null);
 		const [activeIndex, setActiveIndex] = useState(initialSlide);
+		const [prevEl, setPrevEl] = useState<HTMLElement | null>(null);
+		const [nextEl, setNextEl] = useState<HTMLElement | null>(null);
 
 		useImperativeHandle(ref, () => swiperRef.current as SwiperCore, []);
+
 		const isCustomPagination = options.pagination && customPagination;
 		const isDefaultPagination = options.pagination && !customPagination;
 
@@ -83,6 +85,13 @@ const Swiper = forwardRef<SwiperCore, Props>(
 			true && A11y
 		].filter(Boolean) as SwiperModule[];
 
+		const autoplayOption =
+			options.autoplay && typeof options.autoplay === 'object'
+				? { delay: options.autoplay.delay ?? autoPlayTime * 1000, disableOnInteraction: true, waitForTransition: true, pauseOnMouseEnter: true }
+				: options.autoplay === true
+				? { delay: autoPlayTime * 1000, disableOnInteraction: true, waitForTransition: true, pauseOnMouseEnter: true }
+				: false;
+
 		return (
 			<Style.Wrap {...spacingProps}>
 				<SwiperReact
@@ -92,21 +101,20 @@ const Swiper = forwardRef<SwiperCore, Props>(
 					slidesPerView={options.slidesPerView ?? 1}
 					mousewheel={options.mousewheel}
 					modules={resolvedModules}
-					autoplay={
-						options.autoplay && {
-							delay: autoPlayTime * 1000,
-							disableOnInteraction: true,
-							waitForTransition: true,
-							pauseOnMouseEnter: true
-						}
+					loop={options.loop}
+					speed={options.speed ?? 600}
+					effect={options.effect}
+					fadeEffect={options.effect === 'fade' ? { crossFade: true } : undefined}
+					autoplay={autoplayOption}
+					navigation={options.navigation ? { prevEl, nextEl } : false}
+					pagination={
+						isDefaultPagination
+							? {
+									...(typeof options.pagination === 'object' ? options.pagination : {}),
+									clickable: true
+							  }
+							: false
 					}
-					navigation={
-						options.navigation && {
-							prevEl: prevRef.current || undefined,
-							nextEl: nextRef.current || undefined
-						}
-					}
-					pagination={isDefaultPagination ? options.pagination : false}
 					scrollbar={options.scrollbar}
 					onSwiper={swiper => {
 						swiperRef.current = swiper;
@@ -115,22 +123,28 @@ const Swiper = forwardRef<SwiperCore, Props>(
 						setActiveIndex(swiper.realIndex);
 						onChangeCallback?.(swiper.realIndex);
 					}}
-					{...options}
 				>
 					{slides.map((slide, idx) => (
 						<SwiperSlide key={`swiper-slide-${idx}`}>{slide}</SwiperSlide>
 					))}
-
-					{isCustomPagination && (
-						<Style.Control>
-							{slides.map((_, idx) => (
-								<Style.Bullet key={`swiper-bullet-${idx}`} $isActive={idx === activeIndex}>
-									{idx + 1}
-								</Style.Bullet>
-							))}
-						</Style.Control>
-					)}
 				</SwiperReact>
+
+				{options.navigation && (
+					<Style.Control>
+						<Style.Prev ref={el => setPrevEl(el)}>Prev</Style.Prev>
+						<Style.Next ref={el => setNextEl(el)}>Next</Style.Next>
+					</Style.Control>
+				)}
+
+				{isCustomPagination && (
+					<Style.Control>
+						{slides.map((_, idx) => (
+							<Style.Bullet key={`swiper-bullet-${idx}`} $isActive={idx === activeIndex} onClick={() => swiperRef.current?.slideToLoop(idx)}>
+								{idx + 1}
+							</Style.Bullet>
+						))}
+					</Style.Control>
+				)}
 			</Style.Wrap>
 		);
 	}

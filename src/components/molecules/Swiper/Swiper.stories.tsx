@@ -4,7 +4,15 @@ import type { IDescription } from '@/stories/components/Description/Description.
 import withSourceCode from '@/stories/utils/withSourceCode';
 import { Base } from '@/styles/Base/Base.style';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import styled from 'styled-components';
 import Swiper from './Swiper';
+
+const Slide = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100px;
+`;
 
 const meta = {
 	title: 'Molecules/Swiper',
@@ -13,7 +21,7 @@ const meta = {
 	tags: ['autodocs'],
 	argTypes: { ...argTypes.SPACING },
 	args: {
-		slides: [<>Slide 1</>, <>Slide 2</>, <>Slide 3</>]
+		slides: Array.from({ length: 3 }, (_, idx) => <Slide key={`slide-${idx}`}>Slide {idx}</Slide>)
 	}
 } satisfies Meta<typeof Swiper>;
 
@@ -71,5 +79,11 @@ export const WithCustomPagination: Story = {
 	args: {
 		options: { pagination: true },
 		customPagination: true
+	}
+};
+
+export const Autoplay: Story = {
+	args: {
+		options: { autoplay: { delay: 1000 }, speed: 600, loop: true }
 	}
 };
