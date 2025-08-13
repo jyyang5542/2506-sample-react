@@ -94,6 +94,6 @@ export const Alert: Story = {
 		content: '저장되었습니다.',
 		variant: 'alert',
 		showCloseButton: false,
-		actions: [{ label: '확인', onClick: () => alert('닫기'), variant: 'primary' }]
+		actions: [{ label: '확인', onClick: () => alert('확인'), variant: 'primary' }]
 	}
 };
