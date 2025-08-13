@@ -144,7 +144,7 @@ const Swiper = forwardRef<SwiperCore, Props>(
 					{isCustomPagination && (
 						<Style.Control>
 							{slides.map((_, idx) => (
-								<Style.Bullet key={`swiper-bullet-${idx}`} isActive={idx === activeIndex}>
+								<Style.Bullet key={`swiper-bullet-${idx}`} $isActive={idx === activeIndex}>
 									{idx + 1}
 								</Style.Bullet>
 							))}

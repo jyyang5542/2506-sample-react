@@ -8,14 +8,14 @@ import { hexToRgba } from '@/utils';
 import styled, { css } from 'styled-components';
 
 export const Style = {
-	TabBtn: styled(Base.EmptyButton)<{ $isActive: boolean; variant?: TTabVariant; currentTheme: TTheme }>`
+	TabBtn: styled(Base.EmptyButton)<{ $isActive: boolean; variant?: TTabVariant; $currentTheme: TTheme }>`
 		flex-shrink: 0;
 		display: inline-flex;
 		align-items: center;
 		gap: 4px;
 
-		${({ $isActive = false, variant, currentTheme }) => {
-			const isThemeLight = currentTheme === 'light';
+		${({ $isActive = false, variant, $currentTheme }) => {
+			const isThemeLight = $currentTheme === 'light';
 
 			if (variant === 'round') {
 				return css`

@@ -8,9 +8,9 @@ export const Style = {
 
 	Control: styled.div``,
 
-	Bullet: styled.span<{ isActive: boolean }>`
-		${({ isActive }) =>
-			isActive
+	Bullet: styled.span<{ $isActive: boolean }>`
+		${({ $isActive }) =>
+			$isActive
 				? css`
 						font-weight: bold;
 				  `

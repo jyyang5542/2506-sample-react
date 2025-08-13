@@ -41,7 +41,7 @@ const AccordionList = ({
 	};
 
 	return (
-		<Style.Wrap gap={gap} {...spacingProps}>
+		<Style.Wrap $gap={gap} {...spacingProps}>
 			{data.map((item, index) => (
 				<Accordion
 					key={`accordion-item-${index}-${item.title}`}

@@ -48,10 +48,10 @@ export const Style = {
 		overflow-x: auto;
 	`,
 
-	Td: styled.td<{ align?: 'left' | 'center' | 'right' }>`
-		${({ align = 'left' }) =>
+	Td: styled.td<{ $align?: 'left' | 'center' | 'right' }>`
+		${({ $align = 'left' }) =>
 			css`
-				text-align: ${align};
+				text-align: ${$align};
 			`}
 	`
 };

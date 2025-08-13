@@ -10,7 +10,7 @@ const Accordion = ({ opened = false, title, contents, fontSize, onToggle, px, pl
 
 	return (
 		<Style.Wrap {...spacingProps}>
-			<Style.Title onClick={onToggle} opened={opened} fontSize={fontSize?.title}>
+			<Style.Title onClick={onToggle} $opened={opened} $fontSize={fontSize?.title}>
 				<span>{title}</span>
 				<Image
 					src={Icons.ARROW_DOWN}
@@ -23,7 +23,7 @@ const Accordion = ({ opened = false, title, contents, fontSize, onToggle, px, pl
 					}}
 				/>
 			</Style.Title>
-			{opened && <Style.Contents fontSize={fontSize?.contents}>{contents}</Style.Contents>}
+			{opened && <Style.Contents $fontSize={fontSize?.contents}>{contents}</Style.Contents>}
 		</Style.Wrap>
 	);
 };

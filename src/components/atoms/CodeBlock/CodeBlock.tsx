@@ -28,7 +28,7 @@ const CodeBlock = ({ children, language = 'javascript', showLineNumbers = false 
 				marginLeft: '-10px',
 				paddingRight: '1.5em',
 				fontSize: '0.875rem',
-				color: Colors.gray_8
+				color: Colors.gray_888
 			}}
 		>
 			{children}

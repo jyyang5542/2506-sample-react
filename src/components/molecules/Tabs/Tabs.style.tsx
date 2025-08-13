@@ -26,13 +26,13 @@ export const Style = {
 		}}
 	`,
 
-	TabBtn: styled(Base.EmptyButton)<{ isActive: boolean; variant?: TTabVariant; theme: TTheme; disabled?: boolean }>`
+	TabBtn: styled(Base.EmptyButton)<{ $isActive: boolean; variant?: TTabVariant; theme: TTheme; disabled?: boolean }>`
 		flex-shrink: 0;
 		display: inline-flex;
 		align-items: center;
 		gap: 4px;
 
-		${({ isActive = false, variant, theme }) => {
+		${({ $isActive = false, variant, theme }) => {
 			const isThemeLight = theme === 'light';
 
 			if (variant === 'round') {
@@ -43,7 +43,7 @@ export const Style = {
 					border-radius: 15px;
 					border: 1px solid ${hexToRgba(isThemeLight ? lightTheme.text : darkTheme.text, 0.15)};
 
-					${isActive
+					${$isActive
 						? css`
 								color: ${darkTheme.text} !important;
 								background-color: ${darkTheme.background};
@@ -68,7 +68,7 @@ export const Style = {
 			} else {
 				const border = `2px solid ${isThemeLight ? lightTheme.text : darkTheme.text}`;
 				return css`
-					${isActive &&
+					${$isActive &&
 					(variant === 'border-top'
 						? css`
 								border-top: ${border};

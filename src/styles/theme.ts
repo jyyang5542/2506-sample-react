@@ -12,7 +12,7 @@ export const lightTheme: DefaultTheme = {
 
 export const darkTheme: DefaultTheme = {
 	theme: 'dark',
-	background: Colors.gray_1,
+	background: Colors.gray_111,
 	text: Colors.white,
 	colors: {
 		primary: '#79b8ff'

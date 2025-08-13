@@ -57,7 +57,7 @@ const Guide = ({}: Props) => {
 										<Style.Td>{!!item.depth[2] && item.depth[2]}</Style.Td>
 										<Style.Td>{!!item.depth[3] && item.depth[3]}</Style.Td>
 										<Style.Td>{!!item.depth[4] && item.depth[4]}</Style.Td>
-										<Style.Td align='center'>{item.date}</Style.Td>
+										<Style.Td $align='center'>{item.date}</Style.Td>
 										<Style.Td>{item.memo}</Style.Td>
 									</tr>
 								))}

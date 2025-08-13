@@ -16,7 +16,7 @@ const TabBtn = ({ index, type, variant, setActiveIndex, ...props }: Props) => {
 		disabled,
 		$isActive,
 		variant,
-		currentTheme: theme,
+		$currentTheme: theme,
 		as: isTypeLink ? 'a' : undefined,
 		href: isTypeLink && 'href' in props ? props.href : undefined,
 		onClick: () => handleOnClick('onClick' in props ? props.onClick : undefined)
