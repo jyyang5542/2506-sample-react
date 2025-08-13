@@ -1,6 +1,7 @@
 'use client';
 
 import type { TTabVariant } from '@/components/molecules/Tabs/Tabs.types';
+import { Fonts } from '@/constants/fonts';
 import { Base } from '@/styles/Base/Base.style';
 import { darkTheme, lightTheme } from '@/styles/theme';
 import { TTheme } from '@/types/common.types';
@@ -55,7 +56,7 @@ export const Style = {
 
 					${$isActive
 						? css`
-								font-weight: 600;
+								font-weight: ${Fonts.weight.bold};
 
 								&::after {
 									content: '';

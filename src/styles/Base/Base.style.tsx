@@ -1,5 +1,6 @@
 'use client';
 
+import { Fonts } from '@/constants/fonts';
 import type { ITextProps } from '@/styles/Base/Base.types';
 import type { ISpacing } from '@/types/common.types';
 import styled, { css } from 'styled-components';
@@ -39,7 +40,7 @@ export const Base = {
 		max-width: 100%;
 		${({ color }) => !!color && `color: ${color}`};
 		font-size: ${({ fontSize = DEFAULT_FONT_SIZE }) => fontSize}px;
-		font-weight: ${({ fontWeight = 400 }) => fontWeight};
+		font-weight: ${({ fontWeight = Fonts.weight.medium }) => fontWeight};
 		line-height: ${({ lineHeight = '1' }) => lineHeight};
 		${({ ellipsis }) => ellipsis && ellipsisStyle(ellipsis)};
 	`,

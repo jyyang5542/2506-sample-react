@@ -1,5 +1,6 @@
 'use client';
 
+import { Fonts } from '@/constants/fonts';
 import { Base } from '@/styles/Base/Base.style';
 import styled, { css } from 'styled-components';
 
@@ -18,7 +19,7 @@ export const Style = {
 		${({ $isActive }) =>
 			$isActive
 				? css`
-						font-weight: bold;
+						font-weight: ${Fonts.weight.bold};
 				  `
 				: css``}
 	`,

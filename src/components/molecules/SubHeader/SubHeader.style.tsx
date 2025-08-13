@@ -1,5 +1,6 @@
 'use client';
 
+import { Fonts } from '@/constants/fonts';
 import { Base } from '@/styles/Base/Base.style';
 import styled from 'styled-components';
 
@@ -19,7 +20,7 @@ export const Style = {
 	Title: styled.div`
 		flex: 1;
 		text-align: center;
-		font-weight: bold;
+		font-weight: ${Fonts.weight.bold};
 	`,
 
 	Menu: styled(Base.EmptyButton)`

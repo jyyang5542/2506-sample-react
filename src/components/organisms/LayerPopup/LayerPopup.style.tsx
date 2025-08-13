@@ -1,5 +1,6 @@
 'use client';
 
+import { Fonts } from '@/constants/fonts';
 import styled, { css } from 'styled-components';
 
 type Variant = 'dialog' | 'bottomSheet' | 'alert';
@@ -69,7 +70,7 @@ export const Style = {
 	Title: styled.h3`
 		margin: 0 0 12px 0;
 		font-size: 18px;
-		font-weight: 600;
+		font-weight: ${Fonts.weight.bold};
 	`,
 
 	Content: styled.div`

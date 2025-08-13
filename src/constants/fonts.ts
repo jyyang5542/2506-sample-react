@@ -1,8 +1,8 @@
 export const Fonts = {
-	FAMILY: {},
-	WEIGHT: {
-		LIGHT: 300,
-		MEDIUM: 400,
-		BOLD: 600
+	family: {},
+	weight: {
+		light: 300,
+		medium: 400,
+		bold: 600
 	}
 } as const;
