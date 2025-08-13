@@ -13,6 +13,7 @@ export const argTypes = {
 		pl: { description: '`padding-left`', control: { type: 'number' } },
 		pr: { description: '`padding-right`', control: { type: 'number' } }
 	},
+
 	TEXT: {
 		color: { description: '`#000000`, `#FFFFFF` 등', control: false },
 		fontFamily: { description: '`"Pretendard"` 등', control: false },

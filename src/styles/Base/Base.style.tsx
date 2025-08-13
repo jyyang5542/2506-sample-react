@@ -6,7 +6,7 @@ import type { ISpacing } from '@/types/common.types';
 import styled, { css } from 'styled-components';
 
 export const PADDING_X = 18;
-export const DEFAULT_FONT_SIZE = 16;
+export const DEFAULT_FONT_SIZE = Fonts.size.default;
 
 export const ellipsisStyle = (lines: number) => css`
 	display: -webkit-box;
