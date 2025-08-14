@@ -12,7 +12,7 @@ type Props = IAccordion &
 	};
 
 const Accordion = ({ opened, onToggle, title, contents, fontSize, ...spacingProps }: Props) => {
-	const [internalOpened, setInternalOpened] = useState(false);
+	const [internalOpened, setInternalOpened] = useState(opened || false);
 
 	const isControlled = onToggle !== undefined;
 	const isOpen = isControlled ? opened : internalOpened;
