@@ -1,8 +1,4 @@
 import { argTypes } from '@/constants/storybook';
-import { Description } from '@/stories/components';
-import type { IDescription } from '@/stories/components/Description/Description.types';
-import withSourceCode from '@/stories/utils/withSourceCode';
-import { Base } from '@/styles/Base/Base.style';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import styled from 'styled-components';
 import Swiper from './Swiper';
@@ -28,30 +24,6 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
-
-const DESCRIPTION_PROPS: IDescription = {
-	name: 'Swiper',
-	from: `import { Swiper } from '@/components/molecules'`,
-	code: `<Swiper
- slides={[
-   <>Slide 1</>,
-   <>Slide 2</>,
-   <>Slide 3</>
- ]}
-/>`
-};
-
-export const Docs: Story = {
-	decorators: [
-		() => (
-			<Base.Box>
-				<Description {...DESCRIPTION_PROPS} />
-			</Base.Box>
-		)
-	],
-	args: {}
-};
-Docs.parameters = withSourceCode(DESCRIPTION_PROPS.code);
 
 export const Default: Story = {
 	args: {}

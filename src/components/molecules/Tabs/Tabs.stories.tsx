@@ -1,9 +1,5 @@
 import type { ITabBtnLink, ITabBtnPanel } from '@/components/atoms/TabBtn/TabBtn.types';
 import { argTypes } from '@/constants/storybook';
-import { Description } from '@/stories/components';
-import type { IDescription } from '@/stories/components/Description/Description.types';
-import { withSourceCode } from '@/stories/utils';
-import { Base } from '@/styles/Base/Base.style';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import Tabs from './Tabs';
 
@@ -60,22 +56,6 @@ const meta = {
 } satisfies Meta<typeof Tabs>;
 
 export default meta;
-
-const DESCRIPTION_PROPS: IDescription = {
-	name: 'Tabs',
-	from: `import { Tabs } from '@/components/molecules'`,
-	code: `<Tabs data={[]} type="link" variant="round" activeIndex={2} setActiveIndex={setActiveIndex} />`,
-	description: ''
-};
-
-export const Docs = () => {
-	return (
-		<Base.Box>
-			<Description {...DESCRIPTION_PROPS} />
-		</Base.Box>
-	);
-};
-Docs.parameters = withSourceCode(`<Tabs data={panelData} activeIndex={0} />`);
 
 export const Default: StoryObj<typeof meta> = {
 	args: {}

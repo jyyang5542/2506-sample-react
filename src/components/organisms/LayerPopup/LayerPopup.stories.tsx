@@ -1,6 +1,3 @@
-import { Description } from '@/stories/components';
-import type { IDescription } from '@/stories/components/Description/Description.types';
-import withSourceCode from '@/stories/utils/withSourceCode';
 import { Base } from '@/styles/Base/Base.style';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import LayerPopup from './LayerPopup';
@@ -29,25 +26,6 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
-
-const DESCRIPTION_PROPS: IDescription = {
-	name: 'LayerPopup',
-	from: `import { LayerPopup } from '절대경로'`,
-	code: `<LayerPopup />`,
-	description: `LayerPopup 컴포넌트 예제 스토리북입니다. variant, 버튼, 제목, 내용 등을 확인할 수 있습니다.`
-};
-
-export const Docs: Story = {
-	decorators: [
-		() => (
-			<Base.Box>
-				<Description {...DESCRIPTION_PROPS} />
-			</Base.Box>
-		)
-	],
-	args: {}
-};
-Docs.parameters = withSourceCode(DESCRIPTION_PROPS.code);
 
 export const Dialog: Story = {
 	decorators: [
